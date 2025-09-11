@@ -28,7 +28,6 @@ deadCodeDetector {
 
     excludePackages.add("com.mycompany.generated")
 
-
     keepAnnotations.add("javax.inject.Inject")
 }
 

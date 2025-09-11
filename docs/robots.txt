@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://arya458.github.io/Dead-Code-Detector-Gradle-Plugin/sitemap.xml

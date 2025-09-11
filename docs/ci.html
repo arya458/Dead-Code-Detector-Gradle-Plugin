@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CI Integration — Dead Code Detector</title>
+  <meta name="description" content="Dead Code Detector — Gradle plugin to find unused classes, resources and dependencies.">
+  <meta name="keywords" content="dead code, gradle plugin, kotlin, java, unused dependencies, aria danesh">
+  <meta name="author" content="Aria Danesh">
+  <meta name="geo.region" content="IR" />
+  <meta name="geo.placename" content="Tehran" />
+  <meta name="geo.position" content="35.6892;51.3890" />
+  <meta name="ICBM" content="35.6892, 51.3890" />
+  <meta name="robots" content="index,follow" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Dead Code Detector — Docs" />
+  <meta property="og:description" content="Find unused code, resources and dependencies in Kotlin/Java projects." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root{--accent:#7c3aed;--bg:#08101a;--card:#0f1724;--muted:#9aa4b2}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#e6eef6}
+    a{color:var(--accent)}
+    header{backdrop-filter:blur(6px);position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.00));}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand h1{font-size:18px;margin:0}
+    nav a{margin-left:14px;font-size:14px;color:var(--muted)}
+    .container{max-width:1100px;margin:36px auto;padding:0 18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:20px;border-radius:12px}
+    pre{background:#071226;padding:14px;border-radius:10px;overflow:auto}
+    footer{max-width:1100px;margin:24px auto;padding:20px;color:var(--muted);text-align:center}
+    .muted{color:var(--muted)}
+    .kbd{background:#091827;border-radius:6px;padding:6px 8px;font-family:ui-monospace,monospace}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden><rect width="24" height="24" rx="6" fill="#7c3aed"/></svg>
+        <div>
+          <h1>Dead Code Detector</h1>
+          <div class="muted" style="font-size:12px">Gradle plugin • by Aria Danesh</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="installation.html">Installation</a>
+        <a href="configuration.html">Configuration</a>
+        <a href="report.html">HTML Report</a>
+        <a href="ci.html">CI</a>
+        <a href="contributing.html">Contribute</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+
+  <div class="card">
+    <h2>CI / GitHub Actions</h2>
+    <p>Here's a small recipe I use: run the plugin during the build pipeline. If you set <code>failOnDeadCode = true</code>, the job will fail when the detector finds issues.</p>
+    <pre><code>name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+      - name: Run Gradle + dead-code-detector
+        run: ./gradlew check --no-daemon</code></pre>
+    <p class="muted">If you do not want CI to fail, set <code>failOnDeadCode = false</code>.</p>
+  </div>
+
+  </main>
+  <footer>
+    © 2025 Aria Danesh — Dead Code Detector · MIT License · Contact: <a href="mailto:aria.danesh.work@gmail.com">aria.danesh.work@gmail.com</a>
+  </footer>
+</body>
+</html>
