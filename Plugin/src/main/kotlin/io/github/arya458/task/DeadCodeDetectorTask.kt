@@ -1,9 +1,9 @@
-package com.github.arya458.task
+package io.github.arya458.task
 
-import com.github.arya458.*
-import com.github.arya458.analysis.*
-import com.github.arya458.model.DependencyAnalyzerModel
-import com.github.arya458.report.ReportWriter
+import io.github.arya458.*
+import io.github.arya458.analysis.*
+import io.github.arya458.model.DependencyAnalyzerModel
+import io.github.arya458.report.ReportWriter
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction

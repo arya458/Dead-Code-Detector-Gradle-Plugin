@@ -1,7 +1,7 @@
-package com.github.arya458.analysis
+package io.github.arya458.analysis
 
-import com.github.arya458.DeadCodeDetectorExtension
-import com.github.arya458.model.ResourceModel
+import io.github.arya458.DeadCodeDetectorExtension
+import io.github.arya458.model.ResourceModel
 import java.io.File
 
 class ResourceScanner(private val extension: DeadCodeDetectorExtension) {

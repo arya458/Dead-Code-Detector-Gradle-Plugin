@@ -1,4 +1,4 @@
-package com.github.arya458
+package io.github.arya458
 
 import org.json.JSONWriter
 import java.io.Writer

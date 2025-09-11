@@ -1,7 +1,7 @@
-package com.github.arya458.report
+package io.github.arya458.report
 
-import com.github.arya458.DeadCodeDetectorExtension
-import com.github.arya458.model.DependencyAnalyzerModel
+import io.github.arya458.DeadCodeDetectorExtension
+import io.github.arya458.model.DependencyAnalyzerModel
 import java.io.File
 
 class ReportWriter(
@@ -16,7 +16,7 @@ class ReportWriter(
         const val BOLD = "\u001B[1m"
     }
 
-    fun write(result: com.github.arya458.model.DeadCodeModel, deps: DependencyAnalyzerModel, file: File) {
+    fun write(result: io.github.arya458.model.DeadCodeModel, deps: DependencyAnalyzerModel, file: File) {
         val content = buildString {
             appendLine("╔══════════════════════════════════════════════════════════════════════════════════════════╗")
             appendLine("║                            Dead Code Detector Report                                     ║")

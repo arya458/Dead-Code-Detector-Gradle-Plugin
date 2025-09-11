@@ -27,8 +27,8 @@ dependencies {
 gradlePlugin {
     plugins {
         create("deadCodeDetectorPlugin") {
-            id = "com.github.arya458.dead-code-detector"
-            implementationClass = "com.github.arya458.DeadCodeDetectorPlugin"
+            id = "io.github.arya458.dead-code-detector"
+            implementationClass = "io.github.arya458.DeadCodeDetectorPlugin"
             displayName = "Dead Code Detector"
             tags.set(listOf("deadcode", "detector", "cleanup", "resources", "android", "ktor", "spring"))
             description = "Detects unused classes, methods, fields, and (Android, Ktor,Spring,...) resources in your project."

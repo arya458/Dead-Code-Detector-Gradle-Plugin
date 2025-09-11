@@ -1,4 +1,4 @@
-package com.github.arya458
+package io.github.arya458
 
 open class DeadCodeDetectorExtension {
     // Code scanning options

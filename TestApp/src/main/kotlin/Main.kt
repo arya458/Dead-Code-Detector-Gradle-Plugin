@@ -1,4 +1,4 @@
-package com.github.arya458
+package io.github.arya458
 
 //todo: @daedcodeignore
 val foo1 = "Hello"

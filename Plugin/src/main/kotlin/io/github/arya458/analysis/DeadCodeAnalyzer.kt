@@ -1,13 +1,13 @@
-package com.github.arya458.analysis
+package io.github.arya458.analysis
 
-import com.github.arya458.DeadCodeDetectorExtension
-import com.github.arya458.model.ClassScanModel
-import com.github.arya458.model.ResourceModel
+import io.github.arya458.DeadCodeDetectorExtension
+import io.github.arya458.model.ClassScanModel
+import io.github.arya458.model.ResourceModel
 import org.objectweb.asm.Opcodes
 
 class DeadCodeAnalyzer(private val extension: DeadCodeDetectorExtension) {
 
-    fun analyze(classScan: ClassScanModel, resScan: ResourceModel): com.github.arya458.model.DeadCodeModel {
+    fun analyze(classScan: ClassScanModel, resScan: ResourceModel): io.github.arya458.model.DeadCodeModel {
         val (declaredMethods, declaredFields, declaredClasses, referencedMethods, referencedFields, referencedClasses) = classScan
         val deadMethods = declaredMethods.filter { d ->
             if (d.name in listOf("<init>", "<clinit>")) return@filter false
@@ -28,6 +28,6 @@ class DeadCodeAnalyzer(private val extension: DeadCodeDetectorExtension) {
             !usedMember
         }
         val deadResources = if (extension.includeResources) resScan.declared - resScan.referenced else emptySet()
-        return com.github.arya458.model.DeadCodeModel(deadMethods, deadFields, deadClasses, deadResources)
+        return io.github.arya458.model.DeadCodeModel(deadMethods, deadFields, deadClasses, deadResources)
     }
 }

@@ -1,8 +1,8 @@
-package com.github.arya458.analysis
+package io.github.arya458.analysis
 
-import com.github.arya458.model.ClassScanModel
-import com.github.arya458.model.ref.FieldRef
-import com.github.arya458.model.ref.MethodRef
+import io.github.arya458.model.ClassScanModel
+import io.github.arya458.model.ref.FieldRef
+import io.github.arya458.model.ref.MethodRef
 import org.objectweb.asm.*
 import java.io.File
 

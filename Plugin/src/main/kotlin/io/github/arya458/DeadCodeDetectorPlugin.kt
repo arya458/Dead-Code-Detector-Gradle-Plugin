@@ -1,6 +1,6 @@
-package com.github.arya458
+package io.github.arya458
 
-import com.github.arya458.task.DeadCodeDetectorTask
+import io.github.arya458.task.DeadCodeDetectorTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

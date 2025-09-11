@@ -1,7 +1,7 @@
-package com.github.arya458.model
+package io.github.arya458.model
 
-import com.github.arya458.model.ref.FieldRef
-import com.github.arya458.model.ref.MethodRef
+import io.github.arya458.model.ref.FieldRef
+import io.github.arya458.model.ref.MethodRef
 
 
 data class ClassScanModel(

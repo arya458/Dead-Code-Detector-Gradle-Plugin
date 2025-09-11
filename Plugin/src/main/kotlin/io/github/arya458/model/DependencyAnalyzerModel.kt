@@ -1,4 +1,4 @@
-package com.github.arya458.model
+package io.github.arya458.model
 
 data class DependencyAnalyzerModel (
     val declaredDeps: Set<String>,
