@@ -1,7 +1,7 @@
-package com.aria.danesh.analysis
+package com.github.arya458.analysis
 
-import com.aria.danesh.model.ClassScanModel
-import com.aria.danesh.model.DependencyAnalyzerModel
+import com.github.arya458.model.ClassScanModel
+import com.github.arya458.model.DependencyAnalyzerModel
 
 import org.gradle.api.Project
 import java.util.jar.JarFile

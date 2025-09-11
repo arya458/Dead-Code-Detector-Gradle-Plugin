@@ -1,7 +1,7 @@
-package com.aria.danesh.model
+package com.github.arya458.model
 
-import com.aria.danesh.model.ref.FieldRef
-import com.aria.danesh.model.ref.MethodRef
+import com.github.arya458.model.ref.FieldRef
+import com.github.arya458.model.ref.MethodRef
 
 
 data class ClassScanModel(

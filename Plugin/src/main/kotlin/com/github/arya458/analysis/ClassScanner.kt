@@ -1,11 +1,9 @@
-package com.aria.danesh.analysis
+package com.github.arya458.analysis
 
-import com.aria.danesh.DeadCodeDetectorExtension
-import com.aria.danesh.model.ClassScanModel
-import com.aria.danesh.model.ref.FieldRef
-import com.aria.danesh.model.ref.MethodRef
+import com.github.arya458.model.ClassScanModel
+import com.github.arya458.model.ref.FieldRef
+import com.github.arya458.model.ref.MethodRef
 import org.objectweb.asm.*
-import org.gradle.api.logging.Logger
 import java.io.File
 
 class ClassScanner() {

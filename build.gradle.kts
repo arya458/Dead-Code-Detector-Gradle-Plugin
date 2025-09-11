@@ -2,7 +2,7 @@ plugins {
     kotlin("jvm") version "1.9.21"
 }
 
-group = "com.aria.danesh"
+group = "io.github.arya458"
 version = "1.0-SNAPSHOT"
 
 repositories {

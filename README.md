@@ -27,7 +27,7 @@ Can integrate with Gradle check or run manually
 Installation
 Step 1: Apply the plugin
 plugins {
-id("com.aria.danesh.dead-code-detector") version "0.1.0"
+id("com.github.arya458.dead-code-detector") version "0.1.0"
 }
 
 Step 2: Configure the plugin

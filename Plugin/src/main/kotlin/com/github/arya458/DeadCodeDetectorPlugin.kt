@@ -1,6 +1,6 @@
-package com.aria.danesh
+package com.github.arya458
 
-import com.aria.danesh.task.DeadCodeDetectorTask
+import com.github.arya458.task.DeadCodeDetectorTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

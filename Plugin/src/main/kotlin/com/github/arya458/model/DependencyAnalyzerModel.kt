@@ -1,4 +1,4 @@
-package com.aria.danesh.model
+package com.github.arya458.model
 
 data class DependencyAnalyzerModel (
     val declaredDeps: Set<String>,

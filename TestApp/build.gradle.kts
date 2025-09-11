@@ -1,9 +1,9 @@
 plugins {
     kotlin("jvm")
-    id("com.aria.danesh.dead-code-detector")
+    id("com.github.arya458.dead-code-detector")
 }
 
-group = "com.aria.danesh"
+group = "com.github.arya458"
 version = "1.0-SNAPSHOT"
 
 repositories {
