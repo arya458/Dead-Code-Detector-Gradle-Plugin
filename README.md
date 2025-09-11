@@ -28,7 +28,6 @@ Keeping a codebase tidy improves maintainability, build times, and developer con
 * Unused classes
 * Dead resources
 * Unused dependencies
-* Dead public API (optionally)
 
 It produces a plain-text report you can read locally or archive in CI.
 
