@@ -34,6 +34,6 @@ gradlePlugin {
             description = "Detects unused classes, methods, fields, and (Android, Ktor,Spring,...) resources in your project."
         }
     }
-    website = "https://github.com/arya458/dead-code-detector"
-    vcsUrl = "https://github.com/arya458/dead-code-detector"
+    website = "https://github.com/arya458/Dead-Code-Detector-Gradle-Plugin"
+    vcsUrl = "https://github.com/arya458/Dead-Code-Detector-Gradle-Plugin"
 }
