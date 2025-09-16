@@ -1,3 +1,4 @@
+# ⚠️ Not Working On Android Im Working On It
 # Dead Code Detector Gradle Plugin
 
 **Dead Code Detector** is a Kotlin-based Gradle plugin that analyzes compiled classes, resources, and dependencies, generating a human-readable report of unused (dead) code, resources, and libraries in your project.
@@ -48,7 +49,7 @@ Apply the plugin in your module's `build.gradle.kts`:
 
 ```kotlin
 plugins {
-  id("io.github.arya458.dead-code-detector") version "0.0.3"
+  id("io.github.arya458.dead-code-detector") version "0.0.5"
 }
 ```
 
