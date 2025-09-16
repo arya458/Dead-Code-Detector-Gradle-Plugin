@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "io.github.arya458"
-version = "0.0.3"
+version = "0.0.6"
 
 repositories {
     mavenCentral()
