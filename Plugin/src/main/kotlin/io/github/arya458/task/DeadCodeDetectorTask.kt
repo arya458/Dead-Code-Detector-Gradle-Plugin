@@ -41,8 +41,9 @@ open class DeadCodeDetectorTask : DefaultTask() {
         }
 
         // Step 5: Write combined report
+        val modelName = project.name ?: "default"
         val reportDir = project.layout.buildDirectory.dir("reports/dead-code-detector").get().asFile.also { it.mkdirs() }
-        val reportFile = reportDir.resolve("report.txt")
+        val reportFile = reportDir.resolve("report-${modelName}.txt")
 
         ReportWriter(extension).write(analysis, depAnalysis, reportFile)
 

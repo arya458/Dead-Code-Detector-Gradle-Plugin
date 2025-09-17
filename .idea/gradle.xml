@@ -25,6 +25,26 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/Plugin" name="Plugin">
+                <projects>
+                  <project path="$PROJECT_DIR$/Plugin" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/TestKMM" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Plugin" />
+            <option value="$PROJECT_DIR$/TestKMM" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
