@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("io.github.arya458.dead-code-detector-android")
+//    id("deadcodedetector") version "0.0.6"
 }
 
 android {
@@ -56,4 +58,14 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+
+deadCodeDetector {
+    failOnDeadCode = true
+    includeResources = true
+    keepPublicApi = true
+
+    //      ./gradlew deadCodeDetectorDebug
+    //      ./gradlew deadCodeDetectorRelease
 }
