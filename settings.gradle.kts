@@ -10,5 +10,6 @@ plugins {
 
 rootProject.name = "DeadCodeDetector"
 includeBuild("Plugin")
+includeBuild("PluginAndroid")
 include("TestApp")
 
