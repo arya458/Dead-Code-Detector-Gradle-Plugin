@@ -7,9 +7,9 @@
         <compositeConfiguration>
           <compositeBuild compositeDefinitionSource="SCRIPT">
             <builds>
-              <build path="$PROJECT_DIR$/../Plugin" name="Plugin">
+              <build path="$PROJECT_DIR$/../PluginAndroid" name="PluginAndroid">
                 <projects>
-                  <project path="$PROJECT_DIR$/../Plugin" />
+                  <project path="$PROJECT_DIR$/../PluginAndroid" />
                 </projects>
               </build>
             </builds>
@@ -20,7 +20,7 @@
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../Plugin" />
+            <option value="$PROJECT_DIR$/../PluginAndroid" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
           </set>
