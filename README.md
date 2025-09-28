@@ -1,21 +1,20 @@
-# Dead Code Detector Gradle Plugin (Android Edition)
+# ⚠️ For Android Version [Click Here](https://github.com/arya458/Dead-Code-Detector-Gradle-Plugin/tree/main/PluginAndroid)
+# Dead Code Detector Gradle Plugin
 
-> ⚠️ Android support is in progress
-
-**Dead Code Detector** is a Kotlin-based Gradle plugin that analyzes compiled classes, Android resources, and dependencies, generating a report of unused (dead) code and libraries in your project.
+**Dead Code Detector** is a Kotlin-based Gradle plugin that analyzes compiled classes, resources, and dependencies, generating a human-readable report of unused (dead) code, resources, and libraries in your project.
 
 ---
 
-## Table of Contents
+## Table of contents
 
 * [Why use this plugin?](#why-use-this-plugin)
 * [Features](#features)
-* [Quickstart](#quickstart)
+* [Quickstart (install & run)](#quickstart-install--run)
 * [Configuration](#configuration)
 * [Tasks](#tasks)
 * [Report format & example](#report-format--example)
 * [CI integration](#ci-integration)
-* [How it works](#how-it-works)
+* [How it works (brief)](#how-it-works-brief)
 * [Limitations & notes](#limitations--notes)
 * [Contributing](#contributing)
 * [License](#license)
@@ -24,144 +23,102 @@
 
 ## Why use this plugin?
 
-Maintaining a clean Android codebase improves build times, maintainability, and developer confidence. This plugin helps you detect:
+Keeping a codebase tidy improves maintainability, build times, and developer confidence. This plugin helps you find:
 
-* Unused classes, top-level functions, and fields
-* Dead resources (layouts, drawables, etc.)
+* Unreferenced top-level functions and fields
+* Unused classes
+* Dead resources
 * Unused dependencies
 
----
+It produces a plain-text report you can read locally or archive in CI.
 
 ## Features
 
-* Detects unused classes, methods, and fields in Kotlin/Java Android projects
-* Detects unused Android resources (`res/`)
-* Detects unused dependencies
-* Generates grouped, human-readable reports
-* Configurable: keep public API, include/exclude tests, scan/exclude resources, ignore packages or annotations
-* Optionally fail the build if dead code is detected
+* Detects unused classes, top-level functions, and top-level fields in Kotlin/Java projects
+* Detects unused dependencies in your Gradle build
+* Detects unused resources (optionally scanning `src/main/resources` and `src/test/resources`)
+* Grouped, human-readable reports (method signatures, field types, dependency notations)
+* Configurable to keep public API, include/exclude tests, scan/exclude resources, exclude packages
+* Support for ignoring elements annotated with specific annotations
+* Optionally fail the build when dead code is detected
+* Can run manually or be attached to `check` for CI
 
----
+## Quickstart (install & run)
 
-## Quickstart
-
-Apply the **Android-specific plugin** in your `app/build.gradle.kts`:
+Apply the plugin in your module's `build.gradle.kts`:
 
 ```kotlin
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-    id("io.github.arya458.dead-code-detector-android")
-}
-
-android {
-    namespace = "io.github.arya458.testandroidjetpack"
-    compileSdk = 36
-
-    defaultConfig {
-        applicationId = "io.github.arya458.testandroidjetpack"
-        minSdk = 24
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-
-    buildFeatures {
-        compose = true
-    }
-}
-
-dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-}
-
-// Dead Code Detector Configuration
-
-deadCodeDetector {
-    failOnDeadCode = true
-    includeResources = true
-    keepPublicApi = true
+  id("io.github.arya458.dead-code-detector") version "0.0.5"
 }
 ```
 
-Run the detector manually:
+Then run the detector manually:
 
 ```bash
-./gradlew deadCodeDetectorDebug
-./gradlew deadCodeDetectorRelease
+./gradlew deadCodeDetector
 ```
 
-Default report location:
+Or include it in your verification pipeline:
+
+```bash
+./gradlew check
+```
+
+By default the plugin writes its output to:
 
 ```
-app/build/reports/dead-code-detector/report.txt
+build/reports/dead-code-detector/report.txt
 ```
 
----
+(You can override this in the configuration: see below.)
 
 ## Configuration
 
+Configure the plugin with the `deadCodeDetector` extension in your module's `build.gradle.kts`:
+
 ```kotlin
 deadCodeDetector {
-    failOnDeadCode = true          // Fail the build if dead code is detected
-    includeResources = true        // Scan Android resources (res/)
-    keepPublicApi = true           // Ignore public API from detection
-    excludePackages.add("com.mycompany.generated")  // Exclude packages
-    keepAnnotations.add("javax.inject.Inject")     // Ignore elements with annotations
+    // Fail the build if any dead code is detected
+    failOnDeadCode = true
+
+    // Scan test classes + test resources when true
+    includeTests = false
+
+    // If true, public API (public functions/fields) are ignored from detection
+    keepPublicApi = false
+
+    // (Planned) Automatically clear all dead code — not yet implemented
+    // clearAllDeadCode = true
+
+    // Resource scanning
+    includeResources = false
+    resourceDir = "src/main/resources"
+    testResourceDir = "src/test/res"
+
+    // Add package prefixes (or regex-like entries) to exclude from scanning
+    excludePackages.add("com.mycompany.generated")
+
+    // Ignore elements annotated with these annotations
+    keepAnnotations.add("javax.inject.Inject")
 }
 ```
 
-**Notes:**
+### Notes about configuration
 
-* Run after building the app (`./gradlew assembleDebug`) so compiled classes and resources exist.
-* If `keepPublicApi = false`, public functions/classes may be flagged even if used by other modules.
-
----
+* If you want to detect unused public API, set `keepPublicApi = false`. Be careful: this may flag intentionally public functions used by other modules or reflective consumers.
+* If you enable `includeResources`, the plugin will scan your resource directories (`resourceDir`, `testResourceDir`) for unused entries.
+* If you want to detect unused dependencies, simply run the plugin — unused dependency detection is included in the report.
+* If the plugin cannot find compiled classes, run `./gradlew classes` (or your module's compile tasks) before running the detector.
 
 ## Tasks
 
-* `deadCodeDetectorDebug` — scans the debug variant
-* `deadCodeDetectorRelease` — scans the release variant
-* Integration with `check` can be added for CI pipelines
-
----
+* `deadCodeDetector` — main task that scans compiled classes, resources, and dependencies, producing the report
+* Integration with `check` — if wired in the plugin, `./gradlew check` will run the detector (depending on configuration)
 
 ## Report format & example
+
+The report is a plain text file grouped by dead classes, methods, fields, resources, and dependencies. A typical (shortened) example looks like this:
 
 ```
 # Dead Code Detector Report
@@ -170,7 +127,7 @@ Summary:
   * Dead methods: 2
   * Dead fields: 1
   * Dead classes: 1
-  * Dead resources: 3
+  * Dead resources: 1
   * Unused dependencies: 1
 
 Dead Classes:
@@ -183,18 +140,17 @@ Dead Fields:
 Class: com.example.MainKt • unusedValue : String
 
 Dead Resources:
-  * res/layout/old_layout.xml
-  * res/drawable/old_icon.png
+  * src/main/resources/old_config.json
 
 Unused Dependencies:
   * implementation("com.squareup.retrofit2:retrofit:2.9.0")
 ```
 
----
+The plugin attempts to present readable signatures, resource paths, and dependency notations.
 
-## CI Integration
+## CI integration
 
-GitHub Actions example:
+Example GitHub Actions workflow:
 
 ```yaml
 name: CI
@@ -209,35 +165,42 @@ jobs:
         with:
           java-version: '17'
       - name: Run Gradle build + dead-code-detector
-        run: ./gradlew assembleDebug deadCodeDetectorDebug --no-daemon
+        run: ./gradlew check --no-daemon
 ```
 
-Set `failOnDeadCode = false` if you don’t want CI to fail.
+If you prefer the detector not to fail CI, set `failOnDeadCode = false` in the extension.
 
----
+## How it works (brief)
 
-## How it works
+The plugin analyzes compiled class files, resources, and dependency references to determine which items are never referenced. Bytecode-level analysis makes detection reliable for compiled artifacts, but reflection or generated code may cause false positives.
 
-The plugin scans compiled class files, Android resources, and dependency references to detect unused elements. Reflection, generated code, or annotation processors may create false positives.
+If you plan to use this in multi-module projects, run the detector in modules where compiled classes are available; otherwise, point to the compiled class directories if supported by the plugin configuration.
 
----
+## Limitations & notes
 
-## Limitations & Notes
-
-* **Local variables** are ignored (removed by Kotlin/Java compiler).
-* **Reflection/dynamic calls** may appear unused.
-* **Public API**: enable `keepPublicApi = true` to avoid false positives.
-* Run after compiling the project to ensure class files exist.
-
----
+* **Local variables** are not detected (Kotlin compiler may remove them in bytecode).
+* **Reflection, dynamic calls, annotation processors, and dependency injection** can create false positives — code/resources/dependencies used only reflectively might appear unused.
+* **Public API**: if your project exposes public functions/classes used by external consumers, set `keepPublicApi = true` to avoid false positives.
+* Run the plugin after building the classes (`./gradlew classes`) so compiled output is present.
+* `clearAllDeadCode` is currently a planned feature and not implemented.
 
 ## Contributing
 
-* Ideas: HTML/colored reports, integration with Detekt, more annotation rules
-* Pull requests and issues are welcome
+Contributions and issues are welcome.
 
----
+Ideas for improvements:
+
+* Implement `clearAllDeadCode` option
+* Add HTML output or colored console output
+* Add more fine-grained ignore rules (annotations, regex, resource types)
+* Add integration with Detekt or other static analysis tools
+
+Please open issues or PRs against this repository.
 
 ## License
 
-MIT License
+MIT License — feel free to use and modify the code.
+
+---
+
+*Generated by a friendly README polish to make the repository easier for others to use.*

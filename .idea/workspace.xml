@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="README.md">
+      <change afterPath="$PROJECT_DIR$/PluginAndroid/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PluginAndroid/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/PluginAndroid/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,12 +101,12 @@
     &quot;assignee&quot;: &quot;arya458&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/arya458/Dead-Code-Detector-Gradle-Plugin.git",
-    "accountId": "ad537698-813f-4f02-bf19-96d5b51ab703"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/arya458/Dead-Code-Detector-Gradle-Plugin.git&quot;,
+    &quot;accountId&quot;: &quot;ad537698-813f-4f02-bf19-96d5b51ab703&quot;
   }
-}]]></component>
+}</component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$PROJECT_DIR$/../.gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a/gradle-8.9" javaHome="$PROJECT_DIR$/../../../Program Files/Java/jdk-22" gradleVersion="8.9" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -112,45 +115,49 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publish].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetectorRelease].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetector].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin:TestApp [check].executor": "Run",
-    "Gradle.TestKMM [check].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/adanesh/Dead-Code-Detector-Gradle-Plugin",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publish].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetectorRelease].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetector].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin:TestApp [check].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TestKMM [check].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/adanesh/Dead-Code-Detector-Gradle-Plugin&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\adanesh\Dead-Code-Detector-Gradle-Plugin" />
       <recent name="G:\Programming\Projects\Dead-Code-Detector-Gradle-Plugin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\adanesh\Dead-Code-Detector-Gradle-Plugin\PluginAndroid" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -159,6 +166,7 @@
       <command value="gradle deadCodeDetectorRelease" />
       <command value="gradle deadCodeDetector" />
       <command value="gradle :TestApp:deadCodeDetector" />
+      <command value="gradle :PluginAndroid:publishPlugins" />
     </option>
   </component>
   <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins]">
@@ -315,7 +323,8 @@
       <workItem from="1757874470651" duration="2000" />
       <workItem from="1758051449115" duration="2702000" />
       <workItem from="1758124257015" duration="1872000" />
-      <workItem from="1759044133701" duration="6442000" />
+      <workItem from="1759044133701" duration="7835000" />
+      <workItem from="1759057729415" duration="174000" />
     </task>
     <task id="LOCAL-00001" summary="Clean code always looks like it was written by someone who cares. - Michael Feathers&#10;Co-authored-by: Aria Danesh &lt;arya717375@gmail.com&gt;">
       <option name="closed" value="true" />
@@ -373,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759053782860</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="README.md">
+      <option name="closed" value="true" />
+      <created>1759054030166</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1759054030166</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
