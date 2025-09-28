@@ -35,7 +35,7 @@ gradlePlugin {
             implementationClass = "io.github.arya458.DeadCodeDetectorPluginAndroid"
             displayName = "Dead Code Detector For Android"
             tags.set(listOf("deadcode", "detector", "cleanup", "resources", "android", "ktor", "spring"))
-            description = "Detects unused classes, methods, fields, and (Android, Ktor,Spring,...) resources in your project."
+            description = "Detects unused classes, methods, fields, and resources in your project (For Android)."
         }
     }
     website = "https://github.com/arya458/Dead-Code-Detector-Gradle-Plugin"

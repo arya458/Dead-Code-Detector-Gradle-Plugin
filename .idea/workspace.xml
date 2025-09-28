@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Kotlin Multiplatform Test Model added">
+    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PluginAndroid/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/PluginAndroid/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +42,45 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="PluginAndroid" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="PluginAndroid" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="PluginAndroid" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="plugin development" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="PluginAndroid" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="plugin portal" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="PluginAndroid" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="publishing" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="PluginAndroid" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -122,7 +161,29 @@
       <command value="gradle :TestApp:deadCodeDetector" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]">
+  <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins]">
+    <configuration name="Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":PluginAndroid:publishPlugins" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -211,28 +272,6 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TestKMM [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/TestKMM" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="check" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="DeadCodeDetector" />
       <method v="2">
@@ -246,11 +285,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetector]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetectorRelease]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin:TestApp [check]" />
-        <item itemvalue="Gradle.TestKMM [check]" />
       </list>
     </recent_temporary>
   </component>
@@ -276,7 +315,7 @@
       <workItem from="1757874470651" duration="2000" />
       <workItem from="1758051449115" duration="2702000" />
       <workItem from="1758124257015" duration="1872000" />
-      <workItem from="1759044133701" duration="6367000" />
+      <workItem from="1759044133701" duration="6442000" />
     </task>
     <task id="LOCAL-00001" summary="Clean code always looks like it was written by someone who cares. - Michael Feathers&#10;Co-authored-by: Aria Danesh &lt;arya717375@gmail.com&gt;">
       <option name="closed" value="true" />
@@ -326,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758125324559</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="README.md">
+      <option name="closed" value="true" />
+      <created>1759053782860</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1759053782860</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +388,8 @@
     <MESSAGE value="Fixing&#10;&#10;Co-authored-by: aria danesh &lt;arya717375@gmail.com&gt;" />
     <MESSAGE value="version 0.0.6" />
     <MESSAGE value="Kotlin Multiplatform Test Model added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kotlin Multiplatform Test Model added" />
+    <MESSAGE value="README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
