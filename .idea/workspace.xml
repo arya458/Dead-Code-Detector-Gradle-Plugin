@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Kotlin Multiplatform Test Model added">
-      <change afterPath="$PROJECT_DIR$/PluginAndroid/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PluginAndroid/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PluginAndroid/publish.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PluginAndroid/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PluginAndroid/src/main/kotlin/io/github/arya458/DeadCodeDetectorPluginAndroid.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PluginAndroid/src/main/kotlin/io/github/arya458/DeadCodeDetectorTask.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestAndroidJetpack/.idea/deviceManager.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TestAndroidJetpack/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/TestAndroidJetpack/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/TestAndroidJetpack/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +276,7 @@
       <workItem from="1757874470651" duration="2000" />
       <workItem from="1758051449115" duration="2702000" />
       <workItem from="1758124257015" duration="1872000" />
-      <workItem from="1759044133701" duration="5078000" />
+      <workItem from="1759044133701" duration="6367000" />
     </task>
     <task id="LOCAL-00001" summary="Clean code always looks like it was written by someone who cares. - Michael Feathers&#10;Co-authored-by: Aria Danesh &lt;arya717375@gmail.com&gt;">
       <option name="closed" value="true" />
