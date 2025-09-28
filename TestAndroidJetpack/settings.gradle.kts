@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "TestAndroidJetpack"
 include(":app")
-includeBuild("../Plugin")
+//includeBuild("../Plugin")
+includeBuild("../PluginAndroid")
