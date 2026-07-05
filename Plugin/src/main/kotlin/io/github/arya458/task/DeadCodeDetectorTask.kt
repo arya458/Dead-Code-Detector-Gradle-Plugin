@@ -5,12 +5,18 @@ import io.github.arya458.analysis.*
 import io.github.arya458.model.DependencyAnalyzerModel
 import io.github.arya458.report.ReportWriter
 import org.gradle.api.DefaultTask
-import org.gradle.api.tasks.Internal
+import org.gradle.api.tasks.CacheableTask
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
+/**
+ * Gradle task that runs the dead code detection.
+ * It is cacheable and depends on the 'classes' task.
+ */
+@CacheableTask
 open class DeadCodeDetectorTask : DefaultTask() {
 
-    @get:Internal
+    @get:Input
     lateinit var extension: DeadCodeDetectorExtension
 
     @TaskAction
@@ -27,23 +33,22 @@ open class DeadCodeDetectorTask : DefaultTask() {
         // Step 1: Scan classes
         val classScan = ClassScanner().scan(classesRoot, extension.includeTests)
 
-        // Step 2: Scan resources
-        val resScan = ResourceScanner(extension).scan(mainResRoot, testResRoot)
+        // Step 2: Scan resources (includes R.class and manifest)
+        val resScan = ResourceScanner(extension).scan(mainResRoot, testResRoot, classesRoot)
 
-        // Step 3: Analyze dead code/resources
+        // Step 3: Analyze dead code
         val analysis = DeadCodeAnalyzer(extension).analyze(classScan, resScan)
 
-        // Step 4: Analyze dependencies (only if enabled)
+        // Step 4: Analyze dependencies if enabled
         val depAnalysis = if (extension.analyzeDependencies) {
             DependencyAnalyzer(project).analyze(classScan)
         } else {
             DependencyAnalyzerModel(emptySet(), emptySet(), emptySet())
         }
 
-        // Step 5: Write combined report
-        val modelName = project.name ?: "default"
+        // Step 5: Generate reports
         val reportDir = project.layout.buildDirectory.dir("reports/dead-code-detector").get().asFile.also { it.mkdirs() }
-        val reportFile = reportDir.resolve("report-${modelName}.txt")
+        val reportFile = reportDir.resolve("report-${project.name}.txt")
 
         ReportWriter(extension).write(analysis, depAnalysis, reportFile)
 

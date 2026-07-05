@@ -4,6 +4,9 @@ import io.github.arya458.task.DeadCodeDetectorTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
+/**
+ * Plugin entry point. Registers the deadCodeDetector task and attaches to the 'check' lifecycle.
+ */
 class DeadCodeDetectorPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         val ext = project.extensions.create(
@@ -18,10 +21,9 @@ class DeadCodeDetectorPlugin : Plugin<Project> {
             dependsOn("classes")
         }
 
-        // Optional: run automatically on check
+        // Optionally run during check
         project.tasks.named("check").configure {
             dependsOn("deadCodeDetector")
         }
     }
 }
-
