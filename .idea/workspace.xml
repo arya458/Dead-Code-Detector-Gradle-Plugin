@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="README.md">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ClassScanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ClassScanner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DeadCodeAnalyzer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DeadCodeAnalyzer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DependencyAnalyzer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DependencyAnalyzer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ResourceScanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ResourceScanner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ResourceModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ResourceModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/task/DeadCodeDetectorTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/task/DeadCodeDetectorTask.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PluginAndroid/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/PluginAndroid/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestKMM/.run/desktop.run.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestKMM/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestKMM/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestKMM/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestKMM/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestKMM/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestKMM/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestKMM/local.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestKMM/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestKMM/src/main/kotlin/Main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-    </list>
+    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +92,6 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "android.gradle.sync.needed": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
@@ -315,7 +284,7 @@
       <workItem from="1759057729415" duration="208000" />
       <workItem from="1759058295339" duration="27000" />
       <workItem from="1759058399713" duration="178000" />
-      <workItem from="1783206168005" duration="9622000" />
+      <workItem from="1783206168005" duration="9958000" />
     </task>
     <task id="LOCAL-00001" summary="Clean code always looks like it was written by someone who cares. - Michael Feathers&#10;Co-authored-by: Aria Danesh &lt;arya717375@gmail.com&gt;">
       <option name="closed" value="true" />
@@ -389,7 +358,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759057930737</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="updating the gradle">
+      <option name="closed" value="true" />
+      <created>1783218956373</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1783218956373</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options">
+      <option name="closed" value="true" />
+      <created>1783219012747</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1783219012747</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +390,10 @@
     <MESSAGE value="version 0.0.6" />
     <MESSAGE value="Kotlin Multiplatform Test Model added" />
     <MESSAGE value="README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="README.md" />
+    <MESSAGE value="updating the gradle" />
+    <MESSAGE value="feat: major improvements to dead code detector plugin&#10;&#10;- Fix compilation errors in ClassScanner and ResourceScanner:&#10;  - Remove duplicate visitMethodInsn override in ClassScanner&#10;  - Add missing ASM imports (ClassReader, ClassVisitor, Opcodes, FieldVisitor)&#10;  - Correct method signatures (descriptor instead of desc) in ResourceScanner&#10;&#10;- Enhance scanning capabilities:&#10;  - Parallel scanning for better performance (parallelStream)&#10;  - Scan generated R class for resource declarations&#10;  - Scan AndroidManifest.xml for Activity/Service references&#10;  - Basic reflection detection (Class.forName, getMethod, etc.)&#10;&#10;- Improve resource analysis:&#10;  - Extract references from XML (@type/name, ?attr/name)&#10;  - Include referenced classes from manifest in dead code analysis&#10;&#10;- Extend reporting:&#10;  - Generate HTML and JSON reports alongside plain text&#10;  - Enhanced console summary with ANSI colors&#10;&#10;- Add new extension options:&#10;  - excludeClasses, excludeMethods, excludeFields (regex support)&#10;  - keepAnnotations for annotation-based exclusions&#10;  - parallelScan toggle&#10;&#10;- General robustness:&#10;  - Exception handling per file to prevent scan failures&#10;  - Thread-safe collections for concurrent scanning&#10;  - Cacheable task (Gradle build cache support)&#10;&#10;- Refactor ResourceModel to include referencedClassesFromManifest&#10;- Update DependencyAnalyzer to correctly distinguish declared vs transitive deps" />
+    <MESSAGE value="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
