@@ -1,5 +1,4 @@
 import org.gradle.api.tasks.TaskProvider
-import org.jetbrains.kotlin.js.inline.util.getImportTag
 
 plugins {
     `kotlin-dsl`
@@ -18,14 +17,14 @@ repositories {
 
 dependencies {
     // AGP API
-    compileOnly("com.android.tools.build:gradle-api:8.9.1")
+    compileOnly("com.android.tools.build:gradle:8.13.0")
     // Bytecode analysis
     implementation("org.ow2.asm:asm:9.8")
     // Optional: fast classpath scanning
     implementation("io.github.classgraph:classgraph:4.8.181")
     // Kotlin stdlib
     implementation(kotlin("stdlib"))
-    compileOnly("com.android.tools.build:gradle-api:8.9.1")
+//    compileOnly("com.android.tools.build:gradle-api:8.9.1")
 }
 
 gradlePlugin {

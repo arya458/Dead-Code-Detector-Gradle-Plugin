@@ -1,5 +1,4 @@
 import org.gradle.api.tasks.TaskProvider
-import org.jetbrains.kotlin.js.inline.util.getImportTag
 
 plugins {
     `kotlin-dsl`
