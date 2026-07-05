@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/publish_plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/publish_plugin_android.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Fixing workflow error" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -324,7 +320,7 @@
       <workItem from="1759057729415" duration="208000" />
       <workItem from="1759058295339" duration="27000" />
       <workItem from="1759058399713" duration="178000" />
-      <workItem from="1783206168005" duration="11347000" />
+      <workItem from="1783206168005" duration="11649000" />
     </task>
     <task id="LOCAL-00001" summary="Clean code always looks like it was written by someone who cares. - Michael Feathers&#10;Co-authored-by: Aria Danesh &lt;arya717375@gmail.com&gt;">
       <option name="closed" value="true" />
@@ -422,7 +418,23 @@
       <option name="project" value="LOCAL" />
       <updated>1783219415187</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Adding Workflow">
+      <option name="closed" value="true" />
+      <created>1783220562713</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1783220562713</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixing workflow error">
+      <option name="closed" value="true" />
+      <created>1783220828088</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1783220828088</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +453,9 @@
     <MESSAGE value="updating the gradle" />
     <MESSAGE value="feat: major improvements to dead code detector plugin&#10;&#10;- Fix compilation errors in ClassScanner and ResourceScanner:&#10;  - Remove duplicate visitMethodInsn override in ClassScanner&#10;  - Add missing ASM imports (ClassReader, ClassVisitor, Opcodes, FieldVisitor)&#10;  - Correct method signatures (descriptor instead of desc) in ResourceScanner&#10;&#10;- Enhance scanning capabilities:&#10;  - Parallel scanning for better performance (parallelStream)&#10;  - Scan generated R class for resource declarations&#10;  - Scan AndroidManifest.xml for Activity/Service references&#10;  - Basic reflection detection (Class.forName, getMethod, etc.)&#10;&#10;- Improve resource analysis:&#10;  - Extract references from XML (@type/name, ?attr/name)&#10;  - Include referenced classes from manifest in dead code analysis&#10;&#10;- Extend reporting:&#10;  - Generate HTML and JSON reports alongside plain text&#10;  - Enhanced console summary with ANSI colors&#10;&#10;- Add new extension options:&#10;  - excludeClasses, excludeMethods, excludeFields (regex support)&#10;  - keepAnnotations for annotation-based exclusions&#10;  - parallelScan toggle&#10;&#10;- General robustness:&#10;  - Exception handling per file to prevent scan failures&#10;  - Thread-safe collections for concurrent scanning&#10;  - Cacheable task (Gradle build cache support)&#10;&#10;- Refactor ResourceModel to include referencedClassesFromManifest&#10;- Update DependencyAnalyzer to correctly distinguish declared vs transitive deps" />
     <MESSAGE value="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options" />
+    <MESSAGE value="Adding Workflow" />
+    <MESSAGE value="Fixing workflow error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing workflow error" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

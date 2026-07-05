@@ -1,4 +1,4 @@
-name: Publish Android Plugin
+name: Publish Plugin
 
 on:
   workflow_dispatch:
