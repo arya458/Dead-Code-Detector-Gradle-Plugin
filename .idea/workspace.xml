@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options" />
+    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/publish_plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/publish_plugin_android.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +46,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="GitHub Workflow" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -69,6 +80,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Gradle.Build Dead-Code-Detector-Gradle-Plugin.executor": "Run",
+    "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:login].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publish].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins].executor": "Run",
@@ -107,7 +119,7 @@
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "settings.editor.selected.configurable": "http.proxy",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -122,17 +134,18 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="gradle :Plugin:publishPlugins" />
       <command value="gradle deadCodeDetectorRelease" />
       <command value="gradle deadCodeDetector" />
       <command value="gradle :PluginAndroid:publishPlugins" />
       <command value="gradle :TestKMM:deadCodeDetector" />
       <command value="gradle clean" />
       <command value="gradle :TestApp:deadCodeDetector" />
+      <command value="gradle :Plugin:publishPlugins" />
+      <command value="gradle :Plugin:login" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]">
-    <configuration name="Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins]">
+    <configuration name="Dead-Code-Detector-Gradle-Plugin [:Plugin:login]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -143,7 +156,32 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":PluginAndroid:publishPlugins" />
+            <option value=":Plugin:login" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":Plugin:publishPlugins" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -244,17 +282,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:login]" />
+      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins]" />
       <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [clean]" />
-      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins]" />
       <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]" />
       <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins]" />
+        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:login]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [clean]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector]" />
-        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins]" />
       </list>
     </recent_temporary>
   </component>
@@ -284,7 +324,7 @@
       <workItem from="1759057729415" duration="208000" />
       <workItem from="1759058295339" duration="27000" />
       <workItem from="1759058399713" duration="178000" />
-      <workItem from="1783206168005" duration="9958000" />
+      <workItem from="1783206168005" duration="11347000" />
     </task>
     <task id="LOCAL-00001" summary="Clean code always looks like it was written by someone who cares. - Michael Feathers&#10;Co-authored-by: Aria Danesh &lt;arya717375@gmail.com&gt;">
       <option name="closed" value="true" />
@@ -374,7 +414,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783219012747</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options">
+      <option name="closed" value="true" />
+      <created>1783219415187</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1783219415187</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
