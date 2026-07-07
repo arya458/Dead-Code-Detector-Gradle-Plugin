@@ -74,7 +74,7 @@ Add the plugin to your `build.gradle.kts`.
 
 ```kotlin
 plugins {
-    id("io.github.arya458.dead-code-detector") version "0.0.5"
+    id("io.github.arya458.dead-code-detector") version "0.0.9"
 }
 ```
 
