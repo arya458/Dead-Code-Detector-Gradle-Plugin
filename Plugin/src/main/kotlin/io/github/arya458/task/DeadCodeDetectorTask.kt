@@ -8,11 +8,8 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
+import java.io.File
 
-/**
- * Gradle task that runs the dead code detection.
- * It is cacheable and depends on the 'classes' task.
- */
 @CacheableTask
 open class DeadCodeDetectorTask : DefaultTask() {
 
@@ -25,39 +22,43 @@ open class DeadCodeDetectorTask : DefaultTask() {
         val mainResRoot = project.projectDir.resolve(extension.resourceDir)
         val testResRoot = project.projectDir.resolve(extension.testResourceDir)
 
+        // Collect configuration directories for Spring
+        val configRoots = extension.configDirs.map { project.projectDir.resolve(it) }
+
         if (!classesRoot.exists()) {
             logger.lifecycle("No compiled classes found in $classesRoot -> run compile first.")
             return
         }
 
-        // Step 1: Scan classes
-        val classScan = ClassScanner().scan(classesRoot, extension.includeTests)
+        // 1. Scan classes
+        val classScanner = ClassScanner(parallel = extension.parallelScan)
+        val classScan = classScanner.scan(classesRoot, extension.includeTests)
 
-        // Step 2: Scan resources (includes R.class and manifest)
-        val resScan = ResourceScanner(extension).scan(mainResRoot, testResRoot, classesRoot)
+        // 2. Scan resources (Android + Spring configs)
+        val resScan = ResourceScanner(extension).scan(mainResRoot, testResRoot, classesRoot, configRoots)
 
-        // Step 3: Analyze dead code
+        // 3. Analyze dead code
         val analysis = DeadCodeAnalyzer(extension).analyze(classScan, resScan)
 
-        // Step 4: Analyze dependencies if enabled
+        // 4. Dependency analysis
         val depAnalysis = if (extension.analyzeDependencies) {
             DependencyAnalyzer(project).analyze(classScan)
         } else {
             DependencyAnalyzerModel(emptySet(), emptySet(), emptySet())
         }
 
-        // Step 5: Generate reports
+        // 5. Generate reports
         val reportDir = project.layout.buildDirectory.dir("reports/dead-code-detector").get().asFile.also { it.mkdirs() }
         val reportFile = reportDir.resolve("report-${project.name}.txt")
 
         ReportWriter(extension).write(analysis, depAnalysis, reportFile)
 
-        // Step 6: Fail build if configured
+        // 6. Fail build if configured
         val shouldFail = (extension.failOnDeadCode && analysis.hasDeadCode()) ||
                 (extension.failOnUnusedDependencies && depAnalysis.hasUnusedDependencies())
 
         if (shouldFail) {
-            throw RuntimeException("Dead code/resources or unused dependencies detected. See ${reportFile.absolutePath}")
+            throw RuntimeException("\nDead code/resources or unused dependencies detected. See\n ${reportFile.absolutePath}\n")
         }
     }
 }

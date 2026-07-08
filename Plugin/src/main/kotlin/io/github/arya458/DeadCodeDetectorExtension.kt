@@ -1,25 +1,28 @@
 package io.github.arya458
 
-/**
- * Extension DSL for configuring the dead code detector plugin.
- * All options are documented for user customization.
- */
 open class DeadCodeDetectorExtension {
-    // Code scanning options
+    // General
     var failOnDeadCode: Boolean = false
     var includeTests: Boolean = false
     var keepPublicApi: Boolean = true
 
-    // Resource scanning options
+    // Platform detection: "android", "spring", "kmm", "auto" (default)
+    var platform: String = "auto"
+
+    // Resource scanning
     var includeResources: Boolean = true
     var resourceDir: String = "src/main/res"
     var testResourceDir: String = "src/test/res"
 
-    // Dependency scanning options
+    // Dependency scanning
     var analyzeDependencies: Boolean = true
     var failOnUnusedDependencies: Boolean = false
 
-    // Exclusion rules (supports package, class, method/field regex)
+    // Spring specific
+    var scanConfigFiles: Boolean = true
+    var configDirs: List<String> = listOf("src/main/resources")
+
+    // Exclusion rules
     val excludePackages: MutableList<String> = mutableListOf()
     val excludeClasses: MutableList<String> = mutableListOf()
     val excludeMethods: MutableList<Regex> = mutableListOf()

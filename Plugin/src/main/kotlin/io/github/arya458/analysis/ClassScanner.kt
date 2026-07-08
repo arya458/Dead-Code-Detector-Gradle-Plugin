@@ -5,19 +5,17 @@ import io.github.arya458.model.ref.FieldRef
 import io.github.arya458.model.ref.MethodRef
 import org.objectweb.asm.*
 import java.io.File
+import java.util.concurrent.ConcurrentSkipListMap
 import java.util.concurrent.ConcurrentSkipListSet
+import java.util.stream.Stream
 
-/**
- * Scans compiled class files to extract declared and referenced members.
- * Supports parallel scanning for performance and catches exceptions per file.
- */
-class ClassScanner {
+class ClassScanner(private val parallel: Boolean = true) {
 
     fun scan(classesRoot: File, includeTests: Boolean): ClassScanModel {
-        // Thread-safe sets for concurrent scanning
         val declaredMethods = ConcurrentSkipListSet<MethodRef>()
         val declaredFields = ConcurrentSkipListSet<FieldRef>()
         val declaredClasses = ConcurrentSkipListSet<String>()
+        val classAnnotations = ConcurrentSkipListMap<String, MutableSet<String>>()
         val referencedMethods = ConcurrentSkipListSet<MethodRef>()
         val referencedFields = ConcurrentSkipListSet<FieldRef>()
         val referencedClasses = ConcurrentSkipListSet<String>()
@@ -28,8 +26,8 @@ class ClassScanner {
                 .filter { it.isFile && it.extension == "class" }
                 .toList()
 
-            // Parallel processing using Java 8 parallelStream
-            classFiles.parallelStream().forEach { file ->
+            val stream: Stream<File> = if (parallel) classFiles.parallelStream() else classFiles.stream()
+            stream.forEach { file ->
                 try {
                     val cr = ClassReader(file.readBytes())
                     var currentClass = ""
@@ -37,18 +35,41 @@ class ClassScanner {
                         override fun visit(version: Int, access: Int, name: String, sig: String?, superName: String?, intf: Array<out String>?) {
                             currentClass = name
                             declaredClasses += name
-                            // Note: R class handling is done in ResourceScanner, but we can also detect fields here
+                            classAnnotations.computeIfAbsent(name) { mutableSetOf() }
+                        }
+
+                        override fun visitAnnotation(desc: String, visible: Boolean): AnnotationVisitor? {
+                            val annName = desc.substring(1, desc.length - 1).replace('/', '.')
+                            classAnnotations[currentClass]?.add(annName)
+                            return super.visitAnnotation(desc, visible)
                         }
 
                         override fun visitField(access: Int, name: String, desc: String, sig: String?, value: Any?): FieldVisitor? {
-                            declaredFields += FieldRef(currentClass, name, desc, access)
-                            return super.visitField(access, name, desc, sig, value)
+                            val fieldAnns = mutableSetOf<String>()
+                            val visitor = super.visitField(access, name, desc, sig, value)
+                            return object : FieldVisitor(Opcodes.ASM9, visitor) {
+                                override fun visitAnnotation(desc: String, visible: Boolean): AnnotationVisitor? {
+                                    val annName = desc.substring(1, desc.length - 1).replace('/', '.')
+                                    fieldAnns.add(annName)
+                                    return super.visitAnnotation(desc, visible)
+                                }
+                                override fun visitEnd() {
+                                    declaredFields += FieldRef(currentClass, name, desc, access, fieldAnns)
+                                    super.visitEnd()
+                                }
+                            }
                         }
 
                         override fun visitMethod(access: Int, name: String, desc: String, sig: String?, ex: Array<out String>?): MethodVisitor {
-                            val mref = MethodRef(currentClass, name, desc, access)
-                            declaredMethods += mref
-                            return object : MethodVisitor(Opcodes.ASM9) {
+                            val methodAnns = mutableSetOf<String>()
+                            val visitor = super.visitMethod(access, name, desc, sig, ex)
+                            return object : MethodVisitor(Opcodes.ASM9, visitor) {
+                                override fun visitAnnotation(desc: String, visible: Boolean): AnnotationVisitor? {
+                                    val annName = desc.substring(1, desc.length - 1).replace('/', '.')
+                                    methodAnns.add(annName)
+                                    return super.visitAnnotation(desc, visible)
+                                }
+
                                 override fun visitMethodInsn(op: Int, owner: String, name: String, desc: String, isIntf: Boolean) {
                                     referencedMethods += MethodRef(owner, name, desc)
                                     referencedClasses += owner
@@ -57,7 +78,6 @@ class ClassScanner {
                                 override fun visitFieldInsn(op: Int, owner: String, name: String, desc: String) {
                                     referencedFields += FieldRef(owner, name, desc)
                                     referencedClasses += owner
-                                    // If owner is R or R$*, treat as resource reference (handled later)
                                 }
 
                                 override fun visitTypeInsn(op: Int, type: String) {
@@ -66,39 +86,41 @@ class ClassScanner {
 
                                 override fun visitLdcInsn(value: Any) {
                                     when (value) {
-                                        is Type -> {
-                                            referencedClasses += value.internalName
-                                            // Could be used for Class.forName detection
-                                        }
+                                        is Type -> referencedClasses += value.internalName
                                         is String -> {
-                                            // Simple heuristic: if string looks like a fully qualified class name
-                                            if (value.matches(Regex("^[a-zA-Z_][\\w.]*$"))) {
-                                                // Potential class name, but we avoid false positives
-                                            }
+                                            // optional heuristic – ignored
                                         }
                                     }
+                                }
+
+                                override fun visitEnd() {
+                                    declaredMethods += MethodRef(currentClass, name, desc, access, methodAnns)
+                                    super.visitEnd()
                                 }
                             }
                         }
                     }, ClassReader.SKIP_FRAMES)
                 } catch (e: Exception) {
-                    System.err.println("Error scanning class file: ${file.absolutePath} - ${e.message}")
+                    System.err.println("Error scanning ${file.absolutePath}: ${e.message}")
                 }
             }
         }
 
-        // Scan main and test source directories
-        scanDir(classesRoot.resolve("java/main"))
-        scanDir(classesRoot.resolve("kotlin/main"))
+        // Scan main and test source folders (including KMM)
+        listOf("java/main", "kotlin/main", "commonMain", "androidMain", "iosMain").forEach { dir ->
+            scanDir(classesRoot.resolve(dir))
+        }
         if (includeTests) {
-            scanDir(classesRoot.resolve("java/test"))
-            scanDir(classesRoot.resolve("kotlin/test"))
+            listOf("java/test", "kotlin/test", "commonTest", "androidTest", "iosTest").forEach { dir ->
+                scanDir(classesRoot.resolve(dir))
+            }
         }
 
         return ClassScanModel(
             declaredMethods = declaredMethods.toSet(),
             declaredFields = declaredFields.toSet(),
             declaredClasses = declaredClasses.toSet(),
+            classAnnotations = classAnnotations.mapValues { it.value.toSet() },
             referencedMethods = referencedMethods.toSet(),
             referencedFields = referencedFields.toSet(),
             referencedClasses = referencedClasses.toSet()

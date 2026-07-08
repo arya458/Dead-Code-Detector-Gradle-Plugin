@@ -11,12 +11,13 @@ import java.util.concurrent.ConcurrentSkipListSet
 
 class ResourceScanner(private val extension: DeadCodeDetectorExtension) {
 
-    fun scan(mainResRoot: File, testResRoot: File, classesRoot: File): ResourceModel {
+    fun scan(mainResRoot: File, testResRoot: File, classesRoot: File, configRoots: List<File>): ResourceModel {
         val declared = ConcurrentSkipListSet<Pair<String, String>>()
         val referenced = ConcurrentSkipListSet<Pair<String, String>>()
         val referencedClassesFromManifest = ConcurrentSkipListSet<String>()
+        val referencedClassesFromSpring = ConcurrentSkipListSet<String>()
 
-        // 1. Scan resource XML files
+        // ---- Android resources ----
         fun scanResources(resRoot: File) {
             if (!extension.includeResources || !resRoot.exists()) return
             resRoot.walkTopDown().forEach { file ->
@@ -36,7 +37,6 @@ class ResourceScanner(private val extension: DeadCodeDetectorExtension) {
                     }
                 }
             }
-            // Extract @type/name references
             resRoot.walkTopDown().filter { it.extension == "xml" }.forEach { file ->
                 val xml = file.readText()
                 Regex("@(\\w+)/(\\w+)").findAll(xml).forEach {
@@ -48,7 +48,6 @@ class ResourceScanner(private val extension: DeadCodeDetectorExtension) {
             }
         }
 
-        // 2. Scan generated R class
         fun scanRClass() {
             val rFile = classesRoot.walkTopDown().find { it.name == "R.class" }
             if (rFile != null) {
@@ -59,25 +58,19 @@ class ResourceScanner(private val extension: DeadCodeDetectorExtension) {
                         try {
                             val cr = ClassReader(classFile.readBytes())
                             cr.accept(object : ClassVisitor(Opcodes.ASM9) {
-                                override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
-                                    // no-op
-                                }
-                                override fun visitField(access: Int, name: String, descriptor: String, signature: String?, value: Any?): FieldVisitor? {
+                                override fun visitField(access: Int, name: String, descriptor: String, sig: String?, value: Any?): FieldVisitor? {
                                     if (descriptor == "I") {
                                         declared += type to name
                                     }
-                                    return super.visitField(access, name, descriptor, signature, value)
+                                    return super.visitField(access, name, descriptor, sig, value)
                                 }
                             }, ClassReader.SKIP_FRAMES)
-                        } catch (e: Exception) {
-                            // ignore
-                        }
+                        } catch (_: Exception) { }
                     }
                 }
             }
         }
 
-        // 3. Scan AndroidManifest.xml
         fun scanManifest(manifestFile: File?) {
             if (manifestFile == null || !manifestFile.exists()) return
             val xml = manifestFile.readText()
@@ -85,20 +78,56 @@ class ResourceScanner(private val extension: DeadCodeDetectorExtension) {
                 val name = it.groupValues[1]
                 if (!name.startsWith(".")) {
                     referencedClassesFromManifest += name.replace('.', '/')
+                } else {
+                    // relative: we could resolve package from manifest, skipped for brevity
                 }
             }
         }
 
+        // ---- Spring configuration files ----
+        fun scanSpringConfigs(configDirs: List<File>) {
+            if (!extension.scanConfigFiles) return
+            configDirs.forEach { dir ->
+                if (!dir.exists()) return@forEach
+                dir.walkTopDown().forEach { file ->
+                    when {
+                        file.name.endsWith(".xml") -> {
+                            val xml = file.readText()
+                            // Find class attributes in bean definitions
+                            Regex("class=\"([^\"]+)\"").findAll(xml).forEach {
+                                val cls = it.groupValues[1]
+                                referencedClassesFromSpring += cls.replace('.', '/')
+                            }
+                            // Also find factory-method, etc.
+                        }
+                        file.name.matches(Regex("application.*\\.(yml|yaml|properties)")) -> {
+                            val content = file.readText()
+                            // Simple heuristic: look for fully qualified class names
+                            Regex("[a-zA-Z_][\\w.]*\\.[a-zA-Z_][\\w.]*").findAll(content).forEach {
+                                val cls = it.value
+                                if (cls.matches(Regex("^[a-z]+\\.[a-zA-Z_][\\w.]*$"))) {
+                                    referencedClassesFromSpring += cls.replace('.', '/')
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Execute scans
         scanResources(mainResRoot)
         if (extension.includeTests) scanResources(testResRoot)
         scanRClass()
         val manifestFile = File(mainResRoot.parentFile, "AndroidManifest.xml")
         scanManifest(manifestFile)
+        scanSpringConfigs(configRoots)
 
         return ResourceModel(
             declared = declared.toSet(),
             referenced = referenced.toSet(),
-            referencedClassesFromManifest = referencedClassesFromManifest.toSet()
+            referencedClassesFromManifest = referencedClassesFromManifest.toSet(),
+            referencedClassesFromSpringConfig = referencedClassesFromSpring.toSet()
         )
     }
 }
