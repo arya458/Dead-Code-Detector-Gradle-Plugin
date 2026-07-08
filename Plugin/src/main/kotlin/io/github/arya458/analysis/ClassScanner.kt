@@ -10,8 +10,7 @@ import java.io.File
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 import java.nio.file.Files
-import java.util.concurrent.ConcurrentSkipListSet
-import java.util.concurrent.ConcurrentSkipListMap
+import java.util.concurrent.ConcurrentHashMap
 
 class ClassScanner(
     private val project: Project,
@@ -37,13 +36,13 @@ class ClassScanner(
             }
         }
 
-        val declaredMethods = ConcurrentSkipListSet<MethodRef>()
-        val declaredFields = ConcurrentSkipListSet<FieldRef>()
-        val declaredClasses = ConcurrentSkipListSet<String>()
-        val classAnnotations = ConcurrentSkipListMap<String, MutableSet<String>>()
-        val referencedMethods = ConcurrentSkipListSet<MethodRef>()
-        val referencedFields = ConcurrentSkipListSet<FieldRef>()
-        val referencedClasses = ConcurrentSkipListSet<String>()
+        val declaredMethods = ConcurrentHashMap.newKeySet<MethodRef>()
+        val declaredFields = ConcurrentHashMap.newKeySet<FieldRef>()
+        val declaredClasses = ConcurrentHashMap.newKeySet<String>()
+        val referencedMethods = ConcurrentHashMap.newKeySet<MethodRef>()
+        val referencedFields = ConcurrentHashMap.newKeySet<FieldRef>()
+        val referencedClasses = ConcurrentHashMap.newKeySet<String>()
+        val classAnnotations = ConcurrentHashMap<String, MutableSet<String>>()
 
         val dirs = getClassDirectories(includeTests)
 
