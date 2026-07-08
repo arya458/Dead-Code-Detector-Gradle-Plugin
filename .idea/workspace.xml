@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="just a quick refactor">
-      <change beforePath="$PROJECT_DIR$/Plugin/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ci.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ci.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/configuration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/contributing.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/contributing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/report.html" afterDir="false" />
+    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Trying to Fix the ISSue">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +45,24 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="Plugin" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="Plugin" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="Plugin" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -95,55 +105,58 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.Build Dead-Code-Detector-Gradle-Plugin.executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:login].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publish].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:io.github.arya458.MainKt.main()].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [clean].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetectorRelease].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetector].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin:TestApp [check].executor": "Run",
-    "Gradle.Preview: MainKt.App.executor": "Run",
-    "Gradle.TestKMM [check].executor": "Run",
-    "Gradle.Upgrade Gradle wrapper.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/adanesh/Dead-Code-Detector-Gradle-Plugin",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "http.proxy",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.Build Dead-Code-Detector-Gradle-Plugin.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:login].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publish].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:io.github.arya458.MainKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [:TestSpring:deadCodeDetector].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetectorRelease].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetector].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Dead-Code-Detector-Gradle-Plugin:TestApp [check].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Preview: MainKt.App.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TestKMM [check].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;early&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Programming/Projects/Dead-Code-Detector-Gradle-Plugin/docs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Programming\Projects\Dead-Code-Detector-Gradle-Plugin\docs" />
       <recent name="C:\Users\adanesh\Dead-Code-Detector-Gradle-Plugin" />
       <recent name="G:\Programming\Projects\Dead-Code-Detector-Gradle-Plugin" />
     </key>
@@ -164,9 +177,35 @@
       <command value="gradle :TestApp:deadCodeDetector" />
       <command value="gradle :Plugin:publishPlugins" />
       <command value="gradle :Plugin:login" />
+      <command value="gradle :TestSpring:deadCodeDetector" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]">
+  <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:build]">
+    <configuration name="Dead-Code-Detector-Gradle-Plugin [:Plugin:build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":Plugin:build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Dead-Code-Detector-Gradle-Plugin [:Plugin:login]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -242,7 +281,7 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
-    <configuration name="Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Dead-Code-Detector-Gradle-Plugin [:TestSpring:deadCodeDetector]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -253,7 +292,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="TestApp:deadCodeDetector" />
+            <option value=":TestSpring:deadCodeDetector" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -267,41 +306,12 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
-    <configuration name="Dead-Code-Detector-Gradle-Plugin [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="DeadCodeDetector" />
+    <configuration name="TestSpringApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="DeadCodeDetector.TestSpring.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aria.danesh.testspring.TestSpringApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="DeadCodeDetector" />
-      <option name="filePath" />
-      <method v="2" />
     </configuration>
     <configuration name="TestSpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="TestSpring.main" />
@@ -311,20 +321,21 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:build]" />
+      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestSpring:deadCodeDetector]" />
       <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:login]" />
       <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins]" />
-      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [clean]" />
       <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]" />
-      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector]" />
+      <item itemvalue="Spring Boot.TestSpringApplication (1)" />
       <item itemvalue="Spring Boot.TestSpringApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:build]" />
+        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestSpring:deadCodeDetector]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:login]" />
-        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [clean]" />
-        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector]" />
       </list>
     </recent_temporary>
   </component>
@@ -359,6 +370,11 @@
       <workItem from="1783300228541" duration="12000" />
       <workItem from="1783302894533" duration="2006000" />
       <workItem from="1783491350573" duration="5039000" />
+      <workItem from="1783576477913" duration="2790000" />
+      <workItem from="1783579472003" duration="182000" />
+      <workItem from="1783579806281" duration="846000" />
+      <workItem from="1783581254839" duration="26000" />
+      <workItem from="1783581305614" duration="455000" />
     </task>
     <task id="LOCAL-00001" summary="Clean code always looks like it was written by someone who cares. - Michael Feathers&#10;Co-authored-by: Aria Danesh &lt;arya717375@gmail.com&gt;">
       <option name="closed" value="true" />
@@ -504,7 +520,23 @@
       <option name="project" value="LOCAL" />
       <updated>1783494306868</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Trying to Fix the ISSue">
+      <option name="closed" value="true" />
+      <created>1783580340326</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1783580340327</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Trying to Fix the ISSue">
+      <option name="closed" value="true" />
+      <created>1783580539231</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1783580539231</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,7 +561,8 @@
     <MESSAGE value="Lets refactor :D" />
     <MESSAGE value="feat(extension): add custom keep annotations and rule provider" />
     <MESSAGE value="just a quick refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="just a quick refactor" />
+    <MESSAGE value="Trying to Fix the ISSue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to Fix the ISSue" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

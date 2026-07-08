@@ -2,14 +2,19 @@ package io.github.arya458.analysis
 
 import io.github.arya458.DeadCodeDetectorExtension
 import io.github.arya458.model.ResourceModel
+import io.github.arya458.model.ref.MethodRef
 import org.gradle.api.Project
 import org.gradle.api.tasks.SourceSetContainer
+import org.gradle.internal.impldep.org.yaml.snakeyaml.Yaml
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.Opcodes
 import java.io.File
 import java.util.concurrent.ConcurrentSkipListSet
+import org.xml.sax.InputSource
+import java.util.concurrent.ConcurrentHashMap
+import javax.xml.parsers.DocumentBuilderFactory
 
 class ResourceScanner(
     private val project: Project,
@@ -17,20 +22,20 @@ class ResourceScanner(
 ) {
 
     fun scan(): ResourceModel {
-        val declared = ConcurrentSkipListSet<Pair<String, String>>()
-        val referenced = ConcurrentSkipListSet<Pair<String, String>>()
-        val referencedClassesFromManifest = ConcurrentSkipListSet<String>()
-        val referencedClassesFromSpring = ConcurrentSkipListSet<String>()
+        val declared = ConcurrentHashMap.newKeySet<Pair<String, String>>()
+        val referenced = ConcurrentHashMap.newKeySet<Pair<String, String>>()
+        val referencedClassesFromManifest = ConcurrentHashMap.newKeySet<String>()
+        val referencedClassesFromSpring = ConcurrentHashMap.newKeySet<String>()
+        val referencedMethodsFromXml = ConcurrentHashMap.newKeySet<MethodRef>()
 
         val mainResRoot = project.projectDir.resolve(extension.resourceDir)
         val testResRoot = project.projectDir.resolve(extension.testResourceDir)
 
-        scanResources(mainResRoot, declared, referenced)
+        scanResources(mainResRoot, declared, referenced, referencedMethodsFromXml)
         if (extension.includeTests) {
-            scanResources(testResRoot, declared, referenced)
+            scanResources(testResRoot, declared, referenced, referencedMethodsFromXml)
         }
 
-        // Scan R.class
         val sourceSets = project.extensions.findByType(SourceSetContainer::class.java)
         if (sourceSets != null) {
             sourceSets.getByName("main").output.classesDirs.files.forEach { dir ->
@@ -55,11 +60,17 @@ class ResourceScanner(
             declared = declared.toSet(),
             referenced = referenced.toSet(),
             referencedClassesFromManifest = referencedClassesFromManifest.toSet(),
-            referencedClassesFromSpringConfig = referencedClassesFromSpring.toSet()
+            referencedClassesFromSpringConfig = referencedClassesFromSpring.toSet(),
+            referencedMethodsFromXml = referencedMethodsFromXml.toSet()
         )
     }
 
-    private fun scanResources(resRoot: File, declared: MutableSet<Pair<String, String>>, referenced: MutableSet<Pair<String, String>>) {
+    private fun scanResources(
+        resRoot: File,
+        declared: MutableSet<Pair<String, String>>,
+        referenced: MutableSet<Pair<String, String>>,
+        referencedMethods: MutableSet<MethodRef>
+    ) {
         if (!extension.includeResources || !resRoot.exists()) return
 
         resRoot.walkTopDown().forEach { file ->
@@ -91,6 +102,11 @@ class ResourceScanner(
             }
             Regex("\\?attr/(\\w+)").findAll(xml).forEach {
                 referenced.add("attr" to it.groupValues[1])
+            }
+
+            Regex("android:onClick=\"(\\w+)\"").findAll(xml).forEach {
+                val methodName = it.groupValues[1]
+                referencedMethods.add(MethodRef("", methodName, "()V"))
             }
         }
     }
@@ -134,13 +150,41 @@ class ResourceScanner(
         dir.walkTopDown().forEach { file ->
             when {
                 file.name.endsWith(".xml") -> {
-                    val xml = file.readText()
-                    Regex("class=\"([^\"]+)\"").findAll(xml).forEach {
-                        val cls = it.groupValues[1]
-                        referencedClasses.add(cls.replace('.', '/'))
+                    try {
+                        val dbFactory = DocumentBuilderFactory.newInstance()
+                        val dBuilder = dbFactory.newDocumentBuilder()
+                        val doc = dBuilder.parse(file)
+                        val elements = doc.getElementsByTagName("*")
+                        for (i in 0 until elements.length) {
+                            val elem = elements.item(i)
+                            val classAttr = elem.attributes?.getNamedItem("class")
+                            if (classAttr != null) {
+                                val cls = classAttr.textContent
+                                referencedClasses.add(cls.replace('.', '/'))
+                            }
+                            val typeAttr = elem.attributes?.getNamedItem("value-type")
+                            if (typeAttr != null) {
+                                val cls = typeAttr.textContent
+                                referencedClasses.add(cls.replace('.', '/'))
+                            }
+                        }
+                    } catch (e: Exception) {
+                        project.logger.debug("Could not parse Spring XML ${file.name}: ${e.message}")
                     }
                 }
-                file.name.matches(Regex("application.*\\.(yml|yaml|properties)")) -> {
+                file.name.matches(Regex("application.*\\.(yml|yaml)")) -> {
+                    try {
+                        val yaml = Yaml()
+                        val content = file.readText()
+                        val obj = yaml.load(content) as? Map<*, *>
+                        // استخراج کلاس‌ها از ساختار YAML (ساده)
+                        extractClassesFromYaml(obj, referencedClasses)
+                    } catch (e: Exception) {
+                        project.logger.debug("Could not parse YAML ${file.name}: ${e.message}")
+                    }
+                }
+                file.name.endsWith(".properties") -> {
+                    // اسکن ساده با Regex
                     val content = file.readText()
                     Regex("[a-zA-Z_][\\w.]*\\.[a-zA-Z_][\\w.]*").findAll(content).forEach {
                         val cls = it.value
@@ -150,6 +194,19 @@ class ResourceScanner(
                     }
                 }
             }
+        }
+    }
+
+    private fun extractClassesFromYaml(obj: Any?, referencedClasses: MutableSet<String>) {
+        if (obj is Map<*, *>) {
+            obj.values.forEach { value ->
+                if (value is String && value.matches(Regex("^[a-z]+\\.[a-zA-Z_][\\w.]*$"))) {
+                    referencedClasses.add(value.replace('.', '/'))
+                }
+                extractClassesFromYaml(value, referencedClasses)
+            }
+        } else if (obj is List<*>) {
+            obj.forEach { extractClassesFromYaml(it, referencedClasses) }
         }
     }
 }

@@ -14,7 +14,7 @@ class ReportWriter(private val extension: DeadCodeDetectorExtension) {
         htmlFile.writeText(buildHtmlReport(result, deps), StandardCharsets.UTF_8)
         val jsonFile = File(file.parent, file.nameWithoutExtension + ".json")
         jsonFile.writeText(buildJsonReport(result, deps), StandardCharsets.UTF_8)
-        printSummary(result, deps)
+        printSummary(result, deps, file.parent)
     }
 
     private fun buildTextReport(result: DeadCodeModel, deps: DependencyAnalyzerModel): String {
@@ -36,32 +36,44 @@ class ReportWriter(private val extension: DeadCodeDetectorExtension) {
             appendLine("────────────────────────────────────────────────────────────────────────")
             appendLine()
 
+            // گروه‌بندی کلاس‌ها بر اساس پکیج
             if (result.deadClasses.isNotEmpty()) {
-                appendLine("📂 Dead Classes:")
-                result.deadClasses.forEach { appendLine("   - $it") }
-                appendLine()
-            }
-
-            if (result.deadMethods.isNotEmpty()) {
-                appendLine("🔧 Dead Methods:")
-                result.deadMethods.groupBy { it.owner.replace('/', '.') }.forEach { (klass, methods) ->
-                    appendLine("   Class: $klass")
-                    methods.forEach { m -> appendLine("     • ${m.name}${m.desc}") }
+                appendLine("📂 Dead Classes (by package):")
+                result.deadClasses.groupBy { it.substringBeforeLast('.') }.forEach { (pkg, classes) ->
+                    appendLine("   Package: $pkg")
+                    classes.forEach { appendLine("     - $it") }
                 }
                 appendLine()
             }
 
+            // گروه‌بندی متدها بر اساس پکیج کلاس
+            if (result.deadMethods.isNotEmpty()) {
+                appendLine("🔧 Dead Methods (by package):")
+                result.deadMethods.groupBy { it.owner.replace('/', '.').substringBeforeLast('.') }.forEach { (pkg, methods) ->
+                    appendLine("   Package: $pkg")
+                    methods.groupBy { it.owner.replace('/', '.') }.forEach { (klass, ms) ->
+                        appendLine("     Class: $klass")
+                        ms.forEach { m -> appendLine("       • ${m.name}${m.desc}") }
+                    }
+                }
+                appendLine()
+            }
+
+            // گروه‌بندی فیلدها بر اساس پکیج
             if (result.deadFields.isNotEmpty()) {
-                appendLine("🏷 Dead Fields:")
-                result.deadFields.groupBy { it.owner.replace('/', '.') }.forEach { (klass, fields) ->
-                    appendLine("   Class: $klass")
-                    fields.forEach { f -> appendLine("     • ${f.name} : ${f.desc}") }
+                appendLine("🏷 Dead Fields (by package):")
+                result.deadFields.groupBy { it.owner.replace('/', '.').substringBeforeLast('.') }.forEach { (pkg, fields) ->
+                    appendLine("   Package: $pkg")
+                    fields.groupBy { it.owner.replace('/', '.') }.forEach { (klass, fs) ->
+                        appendLine("     Class: $klass")
+                        fs.forEach { f -> appendLine("       • ${f.name} : ${f.desc}") }
+                    }
                 }
                 appendLine()
             }
 
             if (extension.includeResources && result.deadResources.isNotEmpty()) {
-                appendLine("📦 Dead Resources:")
+                appendLine("📦 Dead Resources (by type):")
                 result.deadResources.groupBy { it.first }.forEach { (type, resources) ->
                     appendLine("   Type: $type")
                     resources.forEach { (_, name) -> appendLine("     • $name") }
@@ -291,7 +303,7 @@ class ReportWriter(private val extension: DeadCodeDetectorExtension) {
         """.trimIndent()
     }
 
-    private fun printSummary(result: DeadCodeModel, deps: DependencyAnalyzerModel) {
+    private fun printSummary(result: DeadCodeModel, deps: DependencyAnalyzerModel, path: String) {
         val ansi = object {
             val RESET = "\u001B[0m"
             val RED = "\u001B[31m"
@@ -319,6 +331,7 @@ class ReportWriter(private val extension: DeadCodeDetectorExtension) {
             println("${ansi.GREEN}✔ No dead code, resources, or unused dependencies detected!${ansi.RESET}")
         }
 
-        println("${ansi.BOLD}${ansi.CYAN}==== Report saved at ====${ansi.RESET}")
+        println("${ansi.BOLD}${ansi.CYAN}==== Report saved at ====${ansi.RESET}\n")
+        println("${ansi.GREEN}${path}")
     }
 }

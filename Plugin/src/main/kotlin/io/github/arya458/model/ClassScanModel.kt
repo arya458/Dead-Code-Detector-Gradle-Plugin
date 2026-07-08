@@ -2,6 +2,7 @@ package io.github.arya458.model
 
 import io.github.arya458.model.ref.FieldRef
 import io.github.arya458.model.ref.MethodRef
+import java.io.Serializable
 
 data class ClassScanModel(
     val declaredMethods: Set<MethodRef>,
@@ -11,4 +12,4 @@ data class ClassScanModel(
     val referencedMethods: Set<MethodRef>,
     val referencedFields: Set<FieldRef>,
     val referencedClasses: Set<String>
-)
+) : Serializable

@@ -12,11 +12,6 @@
                   <project path="$PROJECT_DIR$/Plugin" />
                 </projects>
               </build>
-              <build path="$PROJECT_DIR$/PluginAndroid" name="PluginAndroid">
-                <projects>
-                  <project path="$PROJECT_DIR$/PluginAndroid" />
-                </projects>
-              </build>
             </builds>
           </compositeBuild>
         </compositeConfiguration>
@@ -26,8 +21,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Plugin" />
-            <option value="$PROJECT_DIR$/PluginAndroid" />
             <option value="$PROJECT_DIR$/TestApp" />
+            <option value="$PROJECT_DIR$/TestSpring" />
           </set>
         </option>
       </GradleProjectSettings>

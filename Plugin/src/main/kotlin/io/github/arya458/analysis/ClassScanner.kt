@@ -7,41 +7,51 @@ import org.gradle.api.Project
 import org.gradle.api.tasks.SourceSetContainer
 import org.objectweb.asm.*
 import java.io.File
-import java.util.concurrent.ConcurrentSkipListSet
-import java.util.concurrent.ConcurrentSkipListMap
+import java.io.ObjectInputStream
+import java.io.ObjectOutputStream
+import java.nio.file.Files
+import java.util.concurrent.ConcurrentHashMap
 
 class ClassScanner(
     private val project: Project,
-    private val parallel: Boolean = true
+    private val parallel: Boolean = true,
+    private val enableCaching: Boolean = true
 ) {
 
-    fun scan(includeTests: Boolean): ClassScanModel {
-        val declaredMethods = ConcurrentSkipListSet<MethodRef>()
-        val declaredFields = ConcurrentSkipListSet<FieldRef>()
-        val declaredClasses = ConcurrentSkipListSet<String>()
-        val classAnnotations = ConcurrentSkipListMap<String, MutableSet<String>>()
-        val referencedMethods = ConcurrentSkipListSet<MethodRef>()
-        val referencedFields = ConcurrentSkipListSet<FieldRef>()
-        val referencedClasses = ConcurrentSkipListSet<String>()
-
-        val sourceSets = project.extensions.findByType(SourceSetContainer::class.java)
-        val dirs = if (sourceSets != null) {
-            val main = sourceSets.getByName("main").output.classesDirs.files
-            val test = if (includeTests) sourceSets.getByName("test").output.classesDirs.files else emptySet()
-            (main + test).filter { it.exists() }
-        } else {
-            project.logger.warn("SourceSetContainer not found, using default build/classes directories")
-            val mainDir = project.layout.buildDirectory.dir("classes/java/main").get().asFile
-            val testDir = project.layout.buildDirectory.dir("classes/java/test").get().asFile
-            listOf(mainDir).plus(if (includeTests) listOf(testDir) else emptyList()).filter { it.exists() }
+    fun scan(includeTests: Boolean, includeOnlyPackages: List<String> = emptyList()): ClassScanModel {
+        val cacheFile = project.layout.buildDirectory.file("dead-code-cache/class-scan.ser").get().asFile
+        if (enableCaching && cacheFile.exists()) {
+            try {
+                val lastModified = cacheFile.lastModified()
+                val classDirs = getClassDirectories(includeTests)
+                val allClassFiles = classDirs.flatMap { it.walkTopDown().filter { f -> f.isFile && f.extension == "class" }.toList() }
+                val latestChange = allClassFiles.maxOfOrNull { it.lastModified() } ?: 0L
+                if (latestChange <= lastModified) {
+                    return ObjectInputStream(Files.newInputStream(cacheFile.toPath())).use { ois ->
+                        ois.readObject() as ClassScanModel
+                    }
+                }
+            } catch (e: Exception) {
+                project.logger.warn("Could not read cache, rescanning...")
+            }
         }
+
+        val declaredMethods = ConcurrentHashMap.newKeySet<MethodRef>()
+        val declaredFields = ConcurrentHashMap.newKeySet<FieldRef>()
+        val declaredClasses = ConcurrentHashMap.newKeySet<String>()
+        val referencedMethods = ConcurrentHashMap.newKeySet<MethodRef>()
+        val referencedFields = ConcurrentHashMap.newKeySet<FieldRef>()
+        val referencedClasses = ConcurrentHashMap.newKeySet<String>()
+        val classAnnotations = ConcurrentHashMap<String, MutableSet<String>>()
+
+        val dirs = getClassDirectories(includeTests)
 
         dirs.forEach { dir ->
             processDirectory(dir, declaredMethods, declaredFields, declaredClasses, classAnnotations,
-                referencedMethods, referencedFields, referencedClasses)
+                referencedMethods, referencedFields, referencedClasses, includeOnlyPackages)
         }
 
-        return ClassScanModel(
+        val result = ClassScanModel(
             declaredMethods = declaredMethods.toSet(),
             declaredFields = declaredFields.toSet(),
             declaredClasses = declaredClasses.toSet(),
@@ -50,6 +60,50 @@ class ClassScanner(
             referencedFields = referencedFields.toSet(),
             referencedClasses = referencedClasses.toSet()
         )
+
+        // ذخیره در کش
+        if (enableCaching) {
+            try {
+                cacheFile.parentFile.mkdirs()
+                ObjectOutputStream(Files.newOutputStream(cacheFile.toPath())).use { oos ->
+                    oos.writeObject(result)
+                }
+            } catch (e: Exception) {
+                project.logger.warn("Could not write cache: ${e.message}")
+            }
+        }
+
+        return result
+    }
+
+    private fun getClassDirectories(includeTests: Boolean): List<File> {
+        val sourceSets = project.extensions.findByType(SourceSetContainer::class.java)
+        val allDirs = mutableSetOf<File>()
+
+        if (sourceSets != null) {
+            allDirs.addAll(sourceSets.getByName("main").output.classesDirs.files)
+            if (includeTests) {
+                allDirs.addAll(sourceSets.getByName("test").output.classesDirs.files)
+            }
+
+            project.rootProject.subprojects.forEach { sub ->
+                val subSourceSets = sub.extensions.findByType(SourceSetContainer::class.java)
+                if (subSourceSets != null) {
+                    allDirs.addAll(subSourceSets.getByName("main").output.classesDirs.files)
+                    if (includeTests) {
+                        allDirs.addAll(subSourceSets.getByName("test").output.classesDirs.files)
+                    }
+                }
+            }
+        } else {
+            // Fallback
+            val mainDir = project.layout.buildDirectory.dir("classes/java/main").get().asFile
+            val testDir = project.layout.buildDirectory.dir("classes/java/test").get().asFile
+            allDirs.add(mainDir)
+            if (includeTests) allDirs.add(testDir)
+        }
+
+        return allDirs.filter { it.exists() }
     }
 
     private fun processDirectory(
@@ -60,7 +114,8 @@ class ClassScanner(
         classAnnotations: MutableMap<String, MutableSet<String>>,
         referencedMethods: MutableSet<MethodRef>,
         referencedFields: MutableSet<FieldRef>,
-        referencedClasses: MutableSet<String>
+        referencedClasses: MutableSet<String>,
+        includeOnlyPackages: List<String>
     ) {
         val classFiles = dir.walkTopDown()
             .filter { it.isFile && it.extension == "class" }
@@ -74,6 +129,10 @@ class ClassScanner(
                 cr.accept(object : ClassVisitor(Opcodes.ASM9) {
                     override fun visit(version: Int, access: Int, name: String, sig: String?, superName: String?, intf: Array<out String>?) {
                         currentClass = name
+                        val pkg = name.substringBeforeLast('/').replace('/', '.')
+                        if (includeOnlyPackages.isNotEmpty() && includeOnlyPackages.none { pkg.startsWith(it) }) {
+                            return
+                        }
                         declaredClasses.add(name)
                         classAnnotations.computeIfAbsent(name) { mutableSetOf() }
                     }

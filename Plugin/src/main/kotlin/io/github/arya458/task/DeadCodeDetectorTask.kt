@@ -18,9 +18,16 @@ open class DeadCodeDetectorTask : DefaultTask() {
 
     @TaskAction
     fun runDetector() {
-        // 1. Scan classes using SourceSet
-        val classScanner = ClassScanner(project, parallel = extension.parallelScan)
-        val classScan = classScanner.scan(extension.includeTests)
+        // 1. Scan classes با کش و پشتیبانی از چندماژول و includeOnlyPackages
+        val classScanner = ClassScanner(
+            project,
+            parallel = extension.parallelScan,
+            enableCaching = extension.enableCaching
+        )
+        val classScan = classScanner.scan(
+            includeTests = extension.includeTests,
+            includeOnlyPackages = extension.includeOnlyPackages
+        )
 
         // 2. Scan resources
         val resScanner = ResourceScanner(project, extension)

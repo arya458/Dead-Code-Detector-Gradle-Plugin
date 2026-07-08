@@ -1,5 +1,7 @@
 pluginManagement {
     repositories {
+        google()
+        mavenCentral()
         gradlePluginPortal()
     }
 }
@@ -12,5 +14,5 @@ rootProject.name = "DeadCodeDetector"
 
 
 includeBuild("Plugin")
-includeBuild("PluginAndroid")
 include("TestApp")
+include("TestSpring")
