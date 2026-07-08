@@ -1,47 +1,55 @@
 package io.github.arya458.analysis
 
 import io.github.arya458.DeadCodeDetectorExtension
+import io.github.arya458.analysis.platform.*
 import io.github.arya458.model.ClassScanModel
 import io.github.arya458.model.ResourceModel
 import io.github.arya458.model.DeadCodeModel
 import io.github.arya458.model.ref.FieldRef
 import io.github.arya458.model.ref.MethodRef
 import org.objectweb.asm.Opcodes
+import org.gradle.api.Project
 
-class DeadCodeAnalyzer(private val extension: DeadCodeDetectorExtension) {
+class DeadCodeAnalyzer(
+    private val project: Project,
+    private val extension: DeadCodeDetectorExtension
+) {
+
+    private val platformRules: PlatformKeepRules by lazy {
+        detectPlatformRules()
+    }
 
     fun analyze(classScan: ClassScanModel, resScan: ResourceModel): DeadCodeModel {
         val (declaredMethods, declaredFields, declaredClasses, classAnnotations, referencedMethods, referencedFields, referencedClasses) = classScan
+
         val allReferencedClasses = referencedClasses +
                 resScan.referencedClassesFromManifest +
                 resScan.referencedClassesFromSpringConfig
 
-        // Determine platform (auto-detect)
-        val platform = detectPlatform(classAnnotations)
-
         // ---- Dead Methods ----
-        val deadMethods = declaredMethods.filter { d ->
-            if (d.name in listOf("<init>", "<clinit>")) return@filter false
-            if ((d.access and Opcodes.ACC_SYNTHETIC) != 0) return@filter false
-            if (extension.keepPublicApi && (d.access and Opcodes.ACC_PUBLIC) != 0) return@filter false
-            if (extension.excludeMethods.any { it.matches(d.name) }) return@filter false
-            if (hasKeepAnnotation(d.annotations)) return@filter false
+        val deadMethods = declaredMethods.filter { method ->
+            if (method.name in listOf("<init>", "<clinit>")) return@filter false
+            if ((method.access and Opcodes.ACC_SYNTHETIC) != 0) return@filter false
+            if (extension.keepPublicApi && (method.access and Opcodes.ACC_PUBLIC) != 0) return@filter false
+            if (extension.excludeMethods.any { it.matcher(method.name).matches() }) return@filter false
+            if (hasKeepAnnotation(method.annotations)) return@filter false
+            if (platformRules.shouldKeepMethod(method, classAnnotations)) return@filter false
+            if (extension.customKeepRules("method", classAnnotations, method)) return@filter false
 
-            // Platform-specific keep rules
-            if (shouldKeepForPlatform(d, platform, classAnnotations)) return@filter false
-
-            val directRef = referencedMethods.any { it.owner == d.owner && it.name == d.name && it.desc == d.desc }
+            val directRef = referencedMethods.any { it.owner == method.owner && it.name == method.name && it.desc == method.desc }
             !directRef
         }
 
         // ---- Dead Fields ----
-        val deadFields = declaredFields.filter { f ->
-            if ((f.access and Opcodes.ACC_SYNTHETIC) != 0) return@filter false
-            if (extension.keepPublicApi && (f.access and Opcodes.ACC_PUBLIC) != 0) return@filter false
-            if (extension.excludeFields.any { it.matches(f.name) }) return@filter false
-            if (hasKeepAnnotation(f.annotations)) return@filter false
-            if (shouldKeepFieldForPlatform(f, platform)) return@filter false
-            referencedFields.none { it.owner == f.owner && it.name == f.name && it.desc == f.desc }
+        val deadFields = declaredFields.filter { field ->
+            if ((field.access and Opcodes.ACC_SYNTHETIC) != 0) return@filter false
+            if (extension.keepPublicApi && (field.access and Opcodes.ACC_PUBLIC) != 0) return@filter false
+            if (extension.excludeFields.any { it.matcher(field.name).matches() }) return@filter false
+            if (hasKeepAnnotation(field.annotations)) return@filter false
+            if (platformRules.shouldKeepField(field)) return@filter false
+            if (extension.customKeepRules("field", emptyMap(), null)) return@filter false
+
+            referencedFields.none { it.owner == field.owner && it.name == field.name && it.desc == field.desc }
         }
 
         // ---- Dead Classes ----
@@ -52,11 +60,10 @@ class DeadCodeAnalyzer(private val extension: DeadCodeDetectorExtension) {
             if (allReferencedClasses.contains(cls)) return@filter false
             if (extension.keepPublicApi && isPublicClass(cls, classScan)) return@filter false
             if (hasKeepAnnotation(classAnnotations[cls] ?: emptySet())) return@filter false
+            if (platformRules.shouldKeepClass(cls, classAnnotations)) return@filter false
+            if (extension.customKeepRules("class", classAnnotations, null)) return@filter false
 
-            // Platform-specific class keep rules
-            if (shouldKeepClassForPlatform(cls, classAnnotations, platform)) return@filter false
-
-            // If any member of this class is used, keep it alive
+            // اگر عضوی از این کلاس استفاده شده باشد، کلاس زنده است
             val usedMember = declaredMethods.any { it.owner == cls && referencedMethods.any { ref ->
                 ref.owner == it.owner && ref.name == it.name && ref.desc == it.desc
             } } || declaredFields.any { it.owner == cls && referencedFields.any { ref ->
@@ -65,24 +72,37 @@ class DeadCodeAnalyzer(private val extension: DeadCodeDetectorExtension) {
             !usedMember
         }
 
-        // ---- Dead Resources ----
-        val deadResources = if (extension.includeResources) resScan.declared - resScan.referenced else emptySet()
+        val deadResources = if (extension.includeResources) {
+            resScan.declared.filterNot { res ->
+                resScan.referenced.contains(res) ||
+                        platformRules.shouldKeepResource(res.first, res.second)
+            }.toSet()
+        } else emptySet()
 
         return DeadCodeModel(deadMethods, deadFields, deadClasses, deadResources)
     }
 
-    // ----- Helper functions -----
+    private fun detectPlatformRules(): PlatformKeepRules {
+        val platform = extension.platform
+        if (platform != "auto") {
+            return when (platform) {
+                "android" -> AndroidKeepRules()
+                "spring" -> SpringKeepRules()
+                "kmm" -> KmmKeepRules()
+                else -> KmmKeepRules()
+            }
+        }
 
-    private fun detectPlatform(classAnnotations: Map<String, Set<String>>): String {
-        if (extension.platform != "auto") return extension.platform
-        // Heuristic: if any class has Android annotations, treat as Android
-        val androidAnn = setOf("android.app.Activity", "androidx.appcompat.app.AppCompatActivity", "android.service.Service")
-        val springAnn = setOf("org.springframework.stereotype.Service", "org.springframework.stereotype.Controller", "org.springframework.web.bind.annotation.RestController")
-        val allAnn = classAnnotations.values.flatten().toSet()
+        // Auto-detect بر اساس پلاگین‌های اعمال‌شده
         return when {
-            allAnn.any { androidAnn.contains(it) } -> "android"
-            allAnn.any { springAnn.contains(it) } -> "spring"
-            else -> "kmm" // default
+            project.plugins.hasPlugin("com.android.application") ||
+                    project.plugins.hasPlugin("com.android.library") -> AndroidKeepRules()
+            project.plugins.hasPlugin("org.springframework.boot") -> SpringKeepRules()
+            else -> {
+                // Heuristic: اگر annotationهای خاصی وجود داشته باشند
+                // (این قسمت را می‌توان با اسکن annotationها قبل از این مرحله تکمیل کرد)
+                KmmKeepRules()
+            }
         }
     }
 
@@ -90,78 +110,9 @@ class DeadCodeAnalyzer(private val extension: DeadCodeDetectorExtension) {
         return extension.keepAnnotations.any { ann -> annotations.contains(ann) }
     }
 
-    private fun shouldKeepForPlatform(method: MethodRef, platform: String, classAnnotations: Map<String, Set<String>>): Boolean {
-        return when (platform) {
-            "spring" -> {
-                // Keep methods with @RequestMapping, @GetMapping, @PostMapping, etc.
-                val webAnnotations = setOf(
-                    "org.springframework.web.bind.annotation.RequestMapping",
-                    "org.springframework.web.bind.annotation.GetMapping",
-                    "org.springframework.web.bind.annotation.PostMapping",
-                    "org.springframework.web.bind.annotation.PutMapping",
-                    "org.springframework.web.bind.annotation.DeleteMapping"
-                )
-                method.annotations.any { webAnnotations.contains(it) }
-            }
-            "android" -> {
-                // Keep Android lifecycle methods (onCreate, onStart, etc.) only if in Activity/Service
-                val lifecycle = setOf("onCreate", "onStart", "onResume", "onPause", "onStop", "onDestroy")
-                if (method.name in lifecycle) {
-                    // Check if owner class is an Android component
-                    val ownerAnn = classAnnotations[method.owner] ?: emptySet()
-                    val componentAnn = setOf("android.app.Activity", "androidx.appcompat.app.AppCompatActivity", "android.service.Service")
-                    ownerAnn.any { componentAnn.contains(it) }
-                } else false
-            }
-            "kmm" -> {
-                // For KMM, keep expect/actual? Not implemented fully
-                false
-            }
-            else -> false
-        }
-    }
-
-    private fun shouldKeepFieldForPlatform(field: FieldRef, platform: String): Boolean {
-        // Currently no special field keep rules
-        return false
-    }
-
-    private fun shouldKeepClassForPlatform(cls: String, classAnnotations: Map<String, Set<String>>, platform: String): Boolean {
-        val ann = classAnnotations[cls] ?: emptySet()
-        return when (platform) {
-            "spring" -> {
-                val springAnn = setOf(
-                    "org.springframework.stereotype.Service",
-                    "org.springframework.stereotype.Controller",
-                    "org.springframework.stereotype.Repository",
-                    "org.springframework.stereotype.Component",
-                    "org.springframework.web.bind.annotation.RestController",
-                    "org.springframework.boot.autoconfigure.SpringBootApplication",
-                    "org.springframework.context.annotation.Configuration"
-                )
-                ann.any { springAnn.contains(it) }
-            }
-            "android" -> {
-                // Keep classes that are Activity, Service, BroadcastReceiver, etc.
-                val androidComp = setOf(
-                    "android.app.Activity",
-                    "androidx.appcompat.app.AppCompatActivity",
-                    "android.app.Service",
-                    "android.content.BroadcastReceiver",
-                    "androidx.fragment.app.Fragment"
-                )
-                ann.any { androidComp.contains(it) }
-            }
-            "kmm" -> {
-                // For KMM, keep classes with @Shared or similar? Not yet.
-                false
-            }
-            else -> false
-        }
-    }
-
     private fun isPublicClass(cls: String, classScan: ClassScanModel): Boolean {
-        // Not implemented as we don't store class access; but can be extended.
+        // برای پیاده‌سازی کامل نیاز به ذخیره‌سازی access modifier کلاس داریم، که در حال حاضر در مدل نیست.
+        // فعلاً false برمی‌گردانیم.
         return false
     }
 }

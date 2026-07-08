@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Forgot to change the name :)))">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Lets refactor :D">
+      <change afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/platform/AndroidKeepRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/platform/KmmKeepRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/platform/PlatformKeepRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/platform/SpringKeepRules.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorPlugin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ClassScanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ClassScanner.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DeadCodeAnalyzer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DeadCodeAnalyzer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DependencyAnalyzer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DependencyAnalyzer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ResourceScanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ResourceScanner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ClassScanModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ClassScanModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ResourceModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ResourceModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ref/FieldRef.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ref/FieldRef.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ref/MethodRef.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ref/MethodRef.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/task/DeadCodeDetectorTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/task/DeadCodeDetectorTask.kt" afterDir="false" />
     </list>
@@ -70,6 +66,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="GitHub Workflow" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -93,6 +90,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="32ZWtKQZBl1pf9PTHP9faPLiRiz" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -359,7 +359,7 @@
       <workItem from="1783290700179" duration="14000" />
       <workItem from="1783300228541" duration="12000" />
       <workItem from="1783302894533" duration="2006000" />
-      <workItem from="1783491350573" duration="2069000" />
+      <workItem from="1783491350573" duration="2826000" />
     </task>
     <task id="LOCAL-00001" summary="Clean code always looks like it was written by someone who cares. - Michael Feathers&#10;Co-authored-by: Aria Danesh &lt;arya717375@gmail.com&gt;">
       <option name="closed" value="true" />
@@ -481,7 +481,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783220867458</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Lets refactor :D">
+      <option name="closed" value="true" />
+      <created>1783493443446</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1783493443446</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,7 +511,8 @@
     <MESSAGE value="Adding Workflow" />
     <MESSAGE value="Fixing workflow error" />
     <MESSAGE value="Forgot to change the name :)))" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forgot to change the name :)))" />
+    <MESSAGE value="Lets refactor :D" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lets refactor :D" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
