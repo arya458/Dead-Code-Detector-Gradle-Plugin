@@ -5,86 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="just a quick refactor">
-      <change afterPath="$PROJECT_DIR$/.idea/go.imports.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSpring/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSpring/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSpring/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSpring/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSpring/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSpring/src/main/kotlin/com/aria/danesh/testspring/TestSpringApplication.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSpring/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSpring/src/test/kotlin/com/aria/danesh/testspring/TestSpringApplicationTests.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ClassScanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ClassScanner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DeadCodeAnalyzer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DeadCodeAnalyzer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ResourceScanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ResourceScanner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/platform/KmmKeepRules.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/platform/KmmKeepRules.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ResourceModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ResourceModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/task/DeadCodeDetectorTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/task/DeadCodeDetectorTask.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PluginAndroid/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PluginAndroid/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PluginAndroid/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PluginAndroid/publish.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PluginAndroid/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PluginAndroid/src/main/kotlin/io/github/arya458/DeadCodeDetectorPluginAndroid.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PluginAndroid/src/main/kotlin/io/github/arya458/DeadCodeDetectorTask.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/AndroidProjectSystem.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/deploymentTargetSelector.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/deviceManager.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/migrations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/studiobot.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/androidTest/java/io/github/arya458/testandroidjetpack/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/java/io/github/arya458/testandroidjetpack/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/java/io/github/arya458/testandroidjetpack/ui/theme/Color.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/java/io/github/arya458/testandroidjetpack/ui/theme/Theme.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/java/io/github/arya458/testandroidjetpack/ui/theme/Type.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/values/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/test/java/io/github/arya458/testandroidjetpack/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradle/libs.versions.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/TestSpring/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +96,11 @@
     </system>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -229,7 +156,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "early",
     "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/adanesh/Dead-Code-Detector-Gradle-Plugin",
@@ -270,7 +197,32 @@
       <command value="gradle TestAndroid:app:deadCodeDetector" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetector]">
+  <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:build]">
+    <configuration name="Dead-Code-Detector-Gradle-Plugin [:Plugin:build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":Plugin:build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Dead-Code-Detector-Gradle-Plugin [deadCodeDetector]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -323,6 +275,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:build]" />
         <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetector]" />
       </list>
     </recent_temporary>
@@ -426,7 +379,31 @@
       <option name="project" value="LOCAL" />
       <updated>1759057930737</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="just a quick refactor">
+      <option name="closed" value="true" />
+      <created>1783508154234</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1783508154234</updated>
+    </task>
+    <task id="LOCAL-00011" summary="just a quick refactor">
+      <option name="closed" value="true" />
+      <created>1783508529427</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1783508529427</updated>
+    </task>
+    <task id="LOCAL-00012" summary="just a quick refactor">
+      <option name="closed" value="true" />
+      <created>1783508884875</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1783508884875</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,6 +419,7 @@
     <MESSAGE value="version 0.0.6" />
     <MESSAGE value="Kotlin Multiplatform Test Model added" />
     <MESSAGE value="README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="README.md" />
+    <MESSAGE value="just a quick refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="just a quick refactor" />
   </component>
 </project>
