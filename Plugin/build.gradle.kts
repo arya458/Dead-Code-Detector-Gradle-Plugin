@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.arya458"
-version = "0.1.0_alpha"
+version = "0.0.10"
 
 repositories {
     mavenCentral()
