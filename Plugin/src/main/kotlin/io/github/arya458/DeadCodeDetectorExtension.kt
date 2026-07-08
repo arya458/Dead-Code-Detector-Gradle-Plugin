@@ -1,5 +1,8 @@
 package io.github.arya458
 
+import io.github.arya458.model.ref.MethodRef
+import java.util.regex.Pattern
+
 open class DeadCodeDetectorExtension {
     // General
     var failOnDeadCode: Boolean = false
@@ -8,6 +11,13 @@ open class DeadCodeDetectorExtension {
 
     // Platform detection: "android", "spring", "kmm", "auto" (default)
     var platform: String = "auto"
+
+    // Custom keep annotations (user can add more)
+    var keepAnnotations: MutableList<String> = mutableListOf(
+        "javax.persistence.Entity",
+        "javax.persistence.MappedSuperclass",
+        "javax.persistence.Embeddable"
+    )
 
     // Resource scanning
     var includeResources: Boolean = true
@@ -22,13 +32,15 @@ open class DeadCodeDetectorExtension {
     var scanConfigFiles: Boolean = true
     var configDirs: List<String> = listOf("src/main/resources")
 
-    // Exclusion rules
+    // Exclusion rules (now support regex too)
     val excludePackages: MutableList<String> = mutableListOf()
     val excludeClasses: MutableList<String> = mutableListOf()
-    val excludeMethods: MutableList<Regex> = mutableListOf()
-    val excludeFields: MutableList<Regex> = mutableListOf()
-    val keepAnnotations: MutableList<String> = mutableListOf()
+    val excludeMethods: MutableList<Pattern> = mutableListOf()
+    val excludeFields: MutableList<Pattern> = mutableListOf()
 
     // Performance
     var parallelScan: Boolean = true
+
+    // Advanced: custom keep rule provider (for advanced users)
+    var customKeepRules: (String, Map<String, Set<String>>, MethodRef?) -> Boolean = { _, _, _ -> false }
 }
