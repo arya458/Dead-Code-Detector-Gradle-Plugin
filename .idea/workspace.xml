@@ -5,16 +5,86 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="just a quick refactor">
+      <change afterPath="$PROJECT_DIR$/.idea/go.imports.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSpring/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSpring/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSpring/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSpring/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSpring/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSpring/src/main/kotlin/com/aria/danesh/testspring/TestSpringApplication.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSpring/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSpring/src/test/kotlin/com/aria/danesh/testspring/TestSpringApplicationTests.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugin/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ci.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ci.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/configuration.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/configuration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/contributing.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/contributing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/installation.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/installation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ClassScanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ClassScanner.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DeadCodeAnalyzer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/DeadCodeAnalyzer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ResourceScanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ResourceScanner.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/platform/KmmKeepRules.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/platform/KmmKeepRules.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ResourceModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/model/ResourceModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/task/DeadCodeDetectorTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/task/DeadCodeDetectorTask.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PluginAndroid/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PluginAndroid/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PluginAndroid/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PluginAndroid/publish.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PluginAndroid/src/main/kotlin/io/github/arya458/DeadCodeDetectorExtension.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PluginAndroid/src/main/kotlin/io/github/arya458/DeadCodeDetectorPluginAndroid.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PluginAndroid/src/main/kotlin/io/github/arya458/DeadCodeDetectorTask.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/AndroidProjectSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/deploymentTargetSelector.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/deviceManager.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/studiobot.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/androidTest/java/io/github/arya458/testandroidjetpack/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/java/io/github/arya458/testandroidjetpack/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/java/io/github/arya458/testandroidjetpack/ui/theme/Color.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/java/io/github/arya458/testandroidjetpack/ui/theme/Theme.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/java/io/github/arya458/testandroidjetpack/ui/theme/Type.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/app/src/test/java/io/github/arya458/testandroidjetpack/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradle/libs.versions.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/TestSpring/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestAndroidJetpack/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,20 +124,54 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="DeadCodeDetector" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="DeadCodeDetector" type="2d1252cf:ModuleNode" />
+                <item name="TestApp" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="DeadCodeDetector" type="2d1252cf:ModuleNode" />
+                <item name="TestApp" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="DeadCodeDetector" type="2d1252cf:ModuleNode" />
+                <item name="TestApp" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="DeadCodeDetector" type="2d1252cf:ModuleNode" />
+                <item name="TestApp" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeadCodeDetector" type="f1a62948:ProjectNode" />
+                <item name="DeadCodeDetector" type="2d1252cf:ModuleNode" />
+                <item name="TestApp" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="help" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="GitHub Workflow" />
-        <option value="Kotlin Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,7 +185,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/arya458/Dead-Code-Detector-Gradle-Plugin.git&quot;,
-    &quot;accountId&quot;: &quot;35dc31eb-43fa-433a-923c-5d3ec1d4d595&quot;
+    &quot;accountId&quot;: &quot;ad537698-813f-4f02-bf19-96d5b51ab703&quot;
   }
 }</component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$PROJECT_DIR$/../.gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a/gradle-8.9" javaHome="$PROJECT_DIR$/../../../Program Files/Java/jdk-22" gradleVersion="8.9" />
@@ -99,33 +203,32 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Gradle.Build Dead-Code-Detector-Gradle-Plugin.executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:login].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publish].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin [:PluginAndroid:publishPlugins].executor": "Run",
+    "Gradle.Dead-Code-Detector-Gradle-Plugin [:TestAndroid:deadCodeDetector].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:io.github.arya458.MainKt.main()].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector].executor": "Run",
-    "Gradle.Dead-Code-Detector-Gradle-Plugin [clean].executor": "Run",
+    "Gradle.Dead-Code-Detector-Gradle-Plugin [:TestSpring:deadCodeDetector].executor": "Run",
+    "Gradle.Dead-Code-Detector-Gradle-Plugin [:app:classes].executor": "Run",
+    "Gradle.Dead-Code-Detector-Gradle-Plugin [:app:detectDeadCode].executor": "Run",
+    "Gradle.Dead-Code-Detector-Gradle-Plugin [TestAndroid:app:deadCodeDetector].executor": "Run",
+    "Gradle.Dead-Code-Detector-Gradle-Plugin [TestAndroid:classes].executor": "Run",
+    "Gradle.Dead-Code-Detector-Gradle-Plugin [TestAndroid:deadCodeDetector].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetectorRelease].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetector].executor": "Run",
     "Gradle.Dead-Code-Detector-Gradle-Plugin:TestApp [check].executor": "Run",
-    "Gradle.Preview: MainKt.App.executor": "Run",
     "Gradle.TestKMM [check].executor": "Run",
-    "Gradle.Upgrade Gradle wrapper.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
@@ -135,10 +238,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "http.proxy",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -150,24 +252,26 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\adanesh\Dead-Code-Detector-Gradle-Plugin\PluginAndroid" />
     </key>
-    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
-      <recent name="io.github.arya458.report" />
-    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="gradle :Plugin:publishPlugins" />
       <command value="gradle deadCodeDetectorRelease" />
-      <command value="gradle deadCodeDetector" />
+      <command value="gradle :TestApp:deadCodeDetector" />
       <command value="gradle :PluginAndroid:publishPlugins" />
       <command value="gradle :TestKMM:deadCodeDetector" />
-      <command value="gradle clean" />
-      <command value="gradle :TestApp:deadCodeDetector" />
-      <command value="gradle :Plugin:publishPlugins" />
-      <command value="gradle :Plugin:login" />
+      <command value="gradle :TestSpring:deadCodeDetector" />
+      <command value="gradle :TestAndroid:deadCodeDetector" />
+      <command value="gradle TestAndroid:deadCodeDetector" />
+      <command value="gradle :app:detectDeadCode" />
+      <command value="gradle :app:classes" />
+      <command value="gradle TestAndroid:classes" />
+      <command value="gradle deadCodeDetector" />
+      <command value="gradle TestAndroid:app:deadCodeDetector" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]">
-    <configuration name="Dead-Code-Detector-Gradle-Plugin [:Plugin:login]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetector]">
+    <configuration name="Dead-Code-Detector-Gradle-Plugin [deadCodeDetector]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -178,107 +282,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":Plugin:login" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":Plugin:publishPlugins" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":TestApp:deadCodeDetector" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="TestApp:deadCodeDetector" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Dead-Code-Detector-Gradle-Plugin [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
+            <option value="deadCodeDetector" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -303,36 +307,31 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="TestSpring.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.github.arya458.testspring.TestSpringApplication" />
+    <configuration name="TestSpringApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="DeadCodeDetector.TestSpring.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aria.danesh.testspring.TestSpringApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:login]" />
-      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins]" />
-      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [clean]" />
-      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]" />
-      <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector]" />
-      <item itemvalue="Spring Boot.TestSpringApplication" />
-    </list>
+    <configuration name="TestSpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="TestSpring.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aria.danesh.testspring.TestSpringApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestApp:deadCodeDetector]" />
-        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:publishPlugins]" />
-        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:Plugin:login]" />
-        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [clean]" />
-        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [:TestKMM:deadCodeDetector]" />
+        <item itemvalue="Gradle.Dead-Code-Detector-Gradle-Plugin [deadCodeDetector]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-IU-252.23892.409" />
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
       </set>
     </attachedChunks>
   </component>
@@ -354,11 +353,6 @@
       <workItem from="1759057729415" duration="208000" />
       <workItem from="1759058295339" duration="27000" />
       <workItem from="1759058399713" duration="178000" />
-      <workItem from="1783206168005" duration="13297000" />
-      <workItem from="1783290700179" duration="14000" />
-      <workItem from="1783300228541" duration="12000" />
-      <workItem from="1783302894533" duration="2006000" />
-      <workItem from="1783491350573" duration="5039000" />
     </task>
     <task id="LOCAL-00001" summary="Clean code always looks like it was written by someone who cares. - Michael Feathers&#10;Co-authored-by: Aria Danesh &lt;arya717375@gmail.com&gt;">
       <option name="closed" value="true" />
@@ -432,79 +426,7 @@
       <option name="project" value="LOCAL" />
       <updated>1759057930737</updated>
     </task>
-    <task id="LOCAL-00010" summary="updating the gradle">
-      <option name="closed" value="true" />
-      <created>1783218956373</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1783218956373</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options">
-      <option name="closed" value="true" />
-      <created>1783219012747</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1783219012747</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options">
-      <option name="closed" value="true" />
-      <created>1783219415187</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1783219415187</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Adding Workflow">
-      <option name="closed" value="true" />
-      <created>1783220562713</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1783220562713</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Fixing workflow error">
-      <option name="closed" value="true" />
-      <created>1783220828088</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1783220828088</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Forgot to change the name :)))">
-      <option name="closed" value="true" />
-      <created>1783220867458</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1783220867458</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Lets refactor :D">
-      <option name="closed" value="true" />
-      <created>1783493443446</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1783493443446</updated>
-    </task>
-    <task id="LOCAL-00017" summary="feat(extension): add custom keep annotations and rule provider">
-      <option name="closed" value="true" />
-      <created>1783494246273</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1783494246273</updated>
-    </task>
-    <task id="LOCAL-00018" summary="just a quick refactor">
-      <option name="closed" value="true" />
-      <created>1783494306868</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1783494306868</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,22 +442,6 @@
     <MESSAGE value="version 0.0.6" />
     <MESSAGE value="Kotlin Multiplatform Test Model added" />
     <MESSAGE value="README.md" />
-    <MESSAGE value="updating the gradle" />
-    <MESSAGE value="feat: major improvements to dead code detector plugin&#10;&#10;- Fix compilation errors in ClassScanner and ResourceScanner:&#10;  - Remove duplicate visitMethodInsn override in ClassScanner&#10;  - Add missing ASM imports (ClassReader, ClassVisitor, Opcodes, FieldVisitor)&#10;  - Correct method signatures (descriptor instead of desc) in ResourceScanner&#10;&#10;- Enhance scanning capabilities:&#10;  - Parallel scanning for better performance (parallelStream)&#10;  - Scan generated R class for resource declarations&#10;  - Scan AndroidManifest.xml for Activity/Service references&#10;  - Basic reflection detection (Class.forName, getMethod, etc.)&#10;&#10;- Improve resource analysis:&#10;  - Extract references from XML (@type/name, ?attr/name)&#10;  - Include referenced classes from manifest in dead code analysis&#10;&#10;- Extend reporting:&#10;  - Generate HTML and JSON reports alongside plain text&#10;  - Enhanced console summary with ANSI colors&#10;&#10;- Add new extension options:&#10;  - excludeClasses, excludeMethods, excludeFields (regex support)&#10;  - keepAnnotations for annotation-based exclusions&#10;  - parallelScan toggle&#10;&#10;- General robustness:&#10;  - Exception handling per file to prevent scan failures&#10;  - Thread-safe collections for concurrent scanning&#10;  - Cacheable task (Gradle build cache support)&#10;&#10;- Refactor ResourceModel to include referencedClassesFromManifest&#10;- Update DependencyAnalyzer to correctly distinguish declared vs transitive deps" />
-    <MESSAGE value="Fix compilation errors, add parallel scanning, R class &amp; manifest scanning, HTML/JSON reports, and extended configuration options" />
-    <MESSAGE value="Adding Workflow" />
-    <MESSAGE value="Fixing workflow error" />
-    <MESSAGE value="Forgot to change the name :)))" />
-    <MESSAGE value="Lets refactor :D" />
-    <MESSAGE value="feat(extension): add custom keep annotations and rule provider" />
-    <MESSAGE value="just a quick refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="just a quick refactor" />
-  </component>
-  <component name="VgoProject">
-    <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md" />
   </component>
 </project>

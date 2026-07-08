@@ -9,10 +9,10 @@ open class DeadCodeDetectorExtension {
     var includeTests: Boolean = false
     var keepPublicApi: Boolean = true
 
-    // Platform detection: "android", "spring", "kmm", "auto" (default)
+    // Platform detection
     var platform: String = "auto"
 
-    // Custom keep annotations (user can add more)
+    // Custom keep annotations
     var keepAnnotations: MutableList<String> = mutableListOf(
         "javax.persistence.Entity",
         "javax.persistence.MappedSuperclass",
@@ -32,7 +32,7 @@ open class DeadCodeDetectorExtension {
     var scanConfigFiles: Boolean = true
     var configDirs: List<String> = listOf("src/main/resources")
 
-    // Exclusion rules (now support regex too)
+    // Exclusion rules
     val excludePackages: MutableList<String> = mutableListOf()
     val excludeClasses: MutableList<String> = mutableListOf()
     val excludeMethods: MutableList<Pattern> = mutableListOf()
@@ -41,6 +41,12 @@ open class DeadCodeDetectorExtension {
     // Performance
     var parallelScan: Boolean = true
 
-    // Advanced: custom keep rule provider (for advanced users)
+    // Caching
+    var enableCaching: Boolean = true
+
+    // Limit scan to specific packages (empty = all)
+    var includeOnlyPackages: MutableList<String> = mutableListOf()
+
+    // Advanced custom keep rule
     var customKeepRules: (String, Map<String, Set<String>>, MethodRef?) -> Boolean = { _, _, _ -> false }
 }
