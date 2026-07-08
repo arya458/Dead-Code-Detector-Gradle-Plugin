@@ -3,114 +3,103 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home — Dead Code Detector</title>
-    <meta name="description"
-          content="Dead Code Detector — Gradle plugin to find unused classes, resources and dependencies.">
-    <meta name="keywords"
-          content="Aria Danesh, aria danesh, Aria danesh, aria Danesh,arya danesh,Arya danesh,Arya Danesh,dead code, gradle plugin, kotlin, java, unused dependencies, aria danesh">
+    <title>Dead Code Detector – Find Unused Code &amp; Dependencies</title>
+    <meta name="description" content="Gradle plugin to detect dead classes, methods, fields, resources, and unused dependencies in Spring, Android, and Kotlin Multiplatform projects. Developed by Aria Danesh.">
+    <meta name="keywords" content="Aria Danesh, aria danesh, dead code, gradle plugin, kotlin, java, unused dependencies, android, spring, kmm, code analysis">
     <meta name="author" content="Aria Danesh">
-    <meta name="geo.region" content="IR"/>
-    <meta name="geo.placename" content="Tehran"/>
-    <meta name="geo.position" content="35.6892;51.3890"/>
-    <meta name="ICBM" content="35.6892, 51.3890"/>
-    <meta name="google-site-verification" content="hRsJBUoU1jA6KEGFSo-OCJGlrczQlXEiOtdEFci4lj4"/>
-    <meta name="robots" content="index,follow"/>
+    <meta name="geo.region" content="IR">
+    <meta name="geo.placename" content="Tehran">
+    <meta name="geo.position" content="35.6892;51.3890">
+    <meta name="ICBM" content="35.6892, 51.3890">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://arya458.github.io/Dead-Code-Detector-Gradle-Plugin/">
+    <meta property="og:title" content="Dead Code Detector – Gradle Plugin by Aria Danesh">
+    <meta property="og:description" content="Keep your codebase clean – detect dead code, resources, and dependencies in Kotlin/Java projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arya458.github.io/Dead-Code-Detector-Gradle-Plugin/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@arya458">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <meta property="og:title" content="Dead Code Detector — Docs"/>
-    <meta property="og:description" content="Find unused code, resources and dependencies in Kotlin/Java projects."/>
-    <meta property="og:type" content="website"/>
     <style>
         :root {
             --accent: #7c3aed;
             --bg: #08101a;
             --card: #0f1724;
-            --muted: #9aa4b2
+            --muted: #9aa4b2;
         }
-
         html, body {
             margin: 0;
             padding: 0;
-            font-family: Inter, system-ui, Arial;
+            font-family: Inter, system-ui, sans-serif;
             background: var(--bg);
-            color: #e6eef6
+            color: #e6eef6;
         }
-
         a {
-            color: var(--accent)
+            color: var(--accent);
+            text-decoration: none;
         }
-
         header {
             backdrop-filter: blur(6px);
             position: sticky;
             top: 0;
             z-index: 40;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
         }
-
         .nav {
             max-width: 1100px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 18px
+            padding: 12px 18px;
         }
-
         .brand {
             display: flex;
             gap: 12px;
-            align-items: center
+            align-items: center;
         }
-
         .brand h1 {
             font-size: 18px;
-            margin: 0
+            margin: 0;
         }
-
         nav a {
             margin-left: 14px;
             font-size: 14px;
-            color: var(--muted)
+            color: var(--muted);
         }
-
         .container {
             max-width: 1100px;
             margin: 36px auto;
-            padding: 0 18px
+            padding: 0 18px;
         }
-
         .card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.04);
             padding: 20px;
-            border-radius: 12px
+            border-radius: 12px;
         }
-
         pre {
             background: #071226;
             padding: 14px;
             border-radius: 10px;
-            overflow: auto
+            overflow: auto;
         }
-
         footer {
             max-width: 1100px;
             margin: 24px auto;
             padding: 20px;
             color: var(--muted);
-            text-align: center
+            text-align: center;
         }
-
         .muted {
-            color: var(--muted)
+            color: var(--muted);
         }
-
         .kbd {
             background: #091827;
             border-radius: 6px;
             padding: 6px 8px;
-            font-family: ui-monospace, monospace
+            font-family: monospace;
         }
     </style>
 </head>
@@ -138,35 +127,29 @@
     </div>
 </header>
 <main class="container">
-
     <div class="card">
         <h2 style="margin-top:0">Keep your codebase tidy — but don't rush to delete</h2>
-        <p class="muted">In my experience, removing unused code is one of those tasks that pays off slowly but
-            significantly. This plugin helps you find candidates safely: classes, top-level Kotlin functions, resources,
-            and even declared Gradle dependencies that appear unused.</p>
-        <p>It's lightweight, runs on compiled classes (so results reflect the actual bytecode), and can be run locally
-            or in CI. Use it as a guide — not an automatic refactor tool.</p>
+        <p class="muted">In my experience, removing unused code is one of those tasks that pays off slowly but significantly. This plugin helps you find candidates safely: classes, top‑level functions, resources, and even declared Gradle dependencies that appear unused.</p>
+        <p>It's lightweight, runs on compiled classes (so results reflect the actual bytecode), and can be run locally or in CI. Use it as a guide — not an automatic refactor tool.</p>
         <p style="margin-top:12px"><strong>Quick start</strong></p>
         <pre><code>plugins {
-  id("io.github.arya458.dead-code-detector") version "0.0.3"
+  id("io.github.arya458.dead-code-detector") version "0.0.5"
 }
 
 # run
 ./gradlew deadCodeDetector</code></pre>
         <p class="muted">Default report: <span class="kbd">build/reports/dead-code-detector/report.txt</span></p>
     </div>
-
     <div class="card" style="margin-top:16px">
         <h3>What this plugin reports</h3>
         <ul>
-            <li>Dead classes, top-level functions, and top-level fields</li>
-            <li>Unused resource files in your resources directory (optional)</li>
-            <li>Unused Gradle dependencies declared in your module</li>
+            <li>Dead classes, top‑level functions, and top‑level fields</li>
+            <li>Unused resource files (Android, Spring configs, etc.)</li>
+            <li>Unused Gradle dependencies</li>
         </ul>
-        <p class="muted">Note: reflection, JNI, or frameworks using runtime binding (DI) may make code look unused. Use
-            <em>keep</em> rules to avoid false positives.</p>
+        <p class="muted">Note: reflection, JNI, or frameworks using runtime binding (DI) may make code look unused. Use <em>keep</em> rules to avoid false positives.</p>
+        <p class="muted">Developed with ❤️ by <strong>Aria Danesh</strong> – <a href="https://github.com/arya458">GitHub</a></p>
     </div>
-
 </main>
 <footer>
     © 2025 Aria Danesh — Dead Code Detector · MIT License · Contact: <a href="mailto:aria.danesh.work@gmail.com">aria.danesh.work@gmail.com</a>

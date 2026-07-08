@@ -3,112 +3,242 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HTML Report Template — Dead Code Detector</title>
-    <meta name="description"
-          content="Dead Code Detector — Gradle plugin to find unused classes, resources and dependencies.">
-    <meta name="keywords" content="Aria Danesh, aria danesh, Aria danesh, aria Danesh,arya danesh,Arya danesh,Arya Danesh,dead code, gradle plugin, kotlin, java, unused dependencies, aria danesh">
+    <title>HTML Report – Dead Code Detector by Aria Danesh</title>
+    <meta name="description" content="Interactive HTML report template for the Dead Code Detector Gradle plugin – view dead classes, methods, fields, resources, and unused dependencies with search and filter. Developed by Aria Danesh.">
+    <meta name="keywords" content="Aria Danesh, aria danesh, dead code, gradle plugin, html report, kotlin, java, android, spring, kmm, code analysis">
     <meta name="author" content="Aria Danesh">
-    <meta name="geo.region" content="IR"/>
-    <meta name="geo.placename" content="Tehran"/>
-    <meta name="geo.position" content="35.6892;51.3890"/>
-    <meta name="ICBM" content="35.6892, 51.3890"/>
-    <meta name="robots" content="index,follow"/>
+    <meta name="geo.region" content="IR">
+    <meta name="geo.placename" content="Tehran">
+    <meta name="geo.position" content="35.6892;51.3890">
+    <meta name="ICBM" content="35.6892, 51.3890">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://arya458.github.io/Dead-Code-Detector-Gradle-Plugin/report.html">
+    <meta property="og:title" content="HTML Report – Dead Code Detector by Aria Danesh">
+    <meta property="og:description" content="Interactive HTML report for dead code detection – search, filter, and explore results from the Gradle plugin.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arya458.github.io/Dead-Code-Detector-Gradle-Plugin/report.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@arya458">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <meta property="og:title" content="Dead Code Detector — Docs"/>
-    <meta property="og:description" content="Find unused code, resources and dependencies in Kotlin/Java projects."/>
-    <meta property="og:type" content="website"/>
     <style>
         :root {
             --accent: #7c3aed;
             --bg: #08101a;
             --card: #0f1724;
-            --muted: #9aa4b2
+            --muted: #9aa4b2;
+            --border: rgba(255,255,255,0.06);
         }
-
+        * {
+            box-sizing: border-box;
+        }
         html, body {
             margin: 0;
             padding: 0;
-            font-family: Inter, system-ui, Arial;
+            font-family: Inter, system-ui, -apple-system, sans-serif;
             background: var(--bg);
-            color: #e6eef6
+            color: #e6eef6;
+            line-height: 1.6;
         }
-
         a {
-            color: var(--accent)
+            color: var(--accent);
+            text-decoration: none;
         }
-
+        a:hover {
+            text-decoration: underline;
+        }
         header {
             backdrop-filter: blur(6px);
             position: sticky;
             top: 0;
             z-index: 40;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
         }
-
         .nav {
             max-width: 1100px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 18px
+            padding: 12px 18px;
         }
-
         .brand {
             display: flex;
             gap: 12px;
-            align-items: center
+            align-items: center;
         }
-
         .brand h1 {
             font-size: 18px;
-            margin: 0
+            margin: 0;
+            font-weight: 600;
         }
-
+        .brand .sub {
+            font-size: 12px;
+            color: var(--muted);
+        }
         nav a {
             margin-left: 14px;
             font-size: 14px;
-            color: var(--muted)
+            color: var(--muted);
         }
-
         .container {
             max-width: 1100px;
             margin: 36px auto;
-            padding: 0 18px
+            padding: 0 18px;
         }
-
         .card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border: 1px solid var(--border);
             padding: 20px;
-            border-radius: 12px
+            border-radius: 12px;
+            margin-bottom: 20px;
         }
-
+        .card h2 {
+            margin-top: 0;
+            font-weight: 600;
+        }
+        .card h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
         pre {
             background: #071226;
             padding: 14px;
             border-radius: 10px;
-            overflow: auto
+            overflow: auto;
+            font-size: 0.85rem;
+            border: 1px solid var(--border);
         }
-
+        code {
+            background: #091827;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
         footer {
             max-width: 1100px;
             margin: 24px auto;
             padding: 20px;
             color: var(--muted);
-            text-align: center
+            text-align: center;
+            border-top: 1px solid var(--border);
         }
-
         .muted {
-            color: var(--muted)
+            color: var(--muted);
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 4px;
         }
 
-        .kbd {
-            background: #091827;
+        /* Report Preview */
+        #reportPreview {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+        #reportPreview .preview-header {
+            background: rgba(255,255,255,0.03);
+            padding: 8px 16px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #reportPreview .preview-body {
+            padding: 16px;
+            min-height: 120px;
+            font-size: 0.9rem;
+        }
+        .placeholder-text {
+            color: var(--muted);
+            font-style: italic;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Search/filter simulation */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0 16px 0;
+        }
+        .filter-bar input,
+        .filter-bar select {
+            padding: 6px 12px;
             border-radius: 6px;
-            padding: 6px 8px;
-            font-family: ui-monospace, monospace
+            border: 1px solid var(--border);
+            background: #091827;
+            color: #e6eef6;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+        .filter-bar input {
+            flex: 1;
+            min-width: 160px;
+        }
+        .filter-bar select {
+            min-width: 120px;
+        }
+        .filter-bar button {
+            padding: 6px 16px;
+            border-radius: 6px;
+            border: none;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+        .filter-bar button:hover {
+            background: #6d28d9;
+        }
+        .result-item {
+            padding: 6px 10px;
+            border-radius: 4px;
+            border-left: 2px solid var(--accent);
+            margin: 4px 0;
+            background: rgba(255,255,255,0.02);
+        }
+        .result-item .owner {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .result-item .name {
+            font-weight: 400;
+        }
+        .result-item .desc {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        .section-header {
+            font-weight: 600;
+            margin-top: 12px;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+            color: #c8d0d8;
+        }
+        .empty-state {
+            color: var(--muted);
+            font-style: italic;
+            padding: 20px 0;
+            text-align: center;
         }
     </style>
 </head>
@@ -121,7 +251,7 @@
             </svg>
             <div>
                 <h1>Dead Code Detector</h1>
-                <div class="muted" style="font-size:12px">Gradle plugin • by Aria Danesh</div>
+                <div class="sub">Gradle plugin • by Aria Danesh</div>
             </div>
         </div>
         <nav>
@@ -136,60 +266,229 @@
     </div>
 </header>
 <main class="container">
-
     <div class="card">
-        <h2>HTML Report (Interactive)</h2>
-        <p class="muted">This report template is designed to be generated by the plugin. The plugin can either:</p>
-        <ol>
-            <li>Write a JSON file and replace the placeholder in this HTML, or</li>
-            <li>Embed a JSON object into <code>window.reportData</code> when writing the HTML directly.</li>
-        </ol>
-
-        <p>Below is an interactive client-side template. If the plugin writes this file and embeds <code>window.reportData</code>,
-            the report becomes navigable.</p>
-
-        <div style="margin-top:12px" id="reportRoot" class="card">
-            <h3 id="title">Dead Code Detector Report</h3>
-            <div id="summary" class="muted"></div>
-            <div id="details" style="margin-top:10px"></div>
-        </div>
-
-        <pre style="margin-top:14px"><code>// Example usage inside plugin (pseudo-Kotlin)
-val htmlTemplate = file("report-template.html").readText()
-val populated = htmlTemplate.replace("/*REPORT_JSON_PLACEHOLDER*/", gson.toJson(report))
-file("build/reports/dead-code-detector/report.html").writeText(populated)</code></pre>
+        <h2>📊 Interactive HTML Report</h2>
+        <p class="muted">
+            The Dead Code Detector generates an interactive HTML report with <strong>search</strong> and <strong>filter</strong> capabilities.
+            Below is a live preview of what the report looks like when populated with data.
+        </p>
+        <p>— <strong>Aria Danesh</strong></p>
     </div>
 
-    <script>
-        // If window.reportData exists (plugin can inject), render it. Otherwise try to fetch report.json next to the file.
-        (function () {
-            function render(report) {
-                const s = document.getElementById('summary');
-                s.innerHTML = `<strong>Dead classes:</strong> ${report.deadClasses.length} &nbsp; <strong>Unused deps:</strong> ${report.unusedDependencies.length}`;
-                const details = document.getElementById('details');
+    <div class="card">
+        <h3>📋 Report Preview</h3>
+        <p class="muted">This preview simulates the report using sample data. In a real execution, the plugin embeds the actual JSON data.</p>
 
-                function section(title, list) {
-                    if (!list || list.length === 0) return '';
-                    return `<div style="margin-top:10px"><h4>${title}</h4><pre>${list.map(x => typeof x === 'string' ? x : JSON.stringify(x, null, 2)).join('\n\n')}</pre></div>`;
-                }
+        <div id="reportPreview">
+            <div class="preview-header">
+                <span>📄 Dead Code Detector Report</span>
+                <span class="badge">v0.0.5</span>
+            </div>
+            <div class="preview-body">
+                <div style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:12px;">
+                    <div><strong>Dead Classes:</strong> <span id="classCount">2</span></div>
+                    <div><strong>Dead Methods:</strong> <span id="methodCount">3</span></div>
+                    <div><strong>Dead Fields:</strong> <span id="fieldCount">1</span></div>
+                    <div><strong>Dead Resources:</strong> <span id="resourceCount">2</span></div>
+                    <div><strong>Unused Dependencies:</strong> <span id="depCount">1</span></div>
+                </div>
 
-                details.innerHTML = section('Dead classes', report.deadClasses) + section('Dead methods', report.deadMethods) + section('Dead fields', report.deadFields) + section('Dead resources', report.deadResources) + section('Unused dependencies', report.unusedDependencies);
-            }
+                <div class="filter-bar">
+                    <input type="text" id="searchInput" placeholder="🔍 Search..." onkeyup="applyFilters()">
+                    <select id="typeFilter" onchange="applyFilters()">
+                        <option value="all">All Types</option>
+                        <option value="class">Classes</option>
+                        <option value="method">Methods</option>
+                        <option value="field">Fields</option>
+                        <option value="resource">Resources</option>
+                        <option value="dependency">Dependencies</option>
+                    </select>
+                    <button onclick="resetFilters()">Reset</button>
+                    <span style="margin-left:auto; color:var(--muted); font-size:0.85rem;"><span id="resultCount">0</span> items</span>
+                </div>
 
-            if (window.reportData) {
-                render(window.reportData);
-                return;
-            }
-            const fetchUrl = 'report.json';
-            fetch(fetchUrl).then(r => r.json()).then(render).catch(() => {
-                document.getElementById('summary').innerText = 'No embedded report found. To use this template, either embed window.reportData or place report.json alongside this file.';
-            });
-        })();
-    </script>
+                <div id="resultsContainer">
+                    <!-- Rendered by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="card">
+        <h3>🔧 How the Report Works</h3>
+        <p>The plugin generates the HTML report in one of two ways:</p>
+        <ol>
+            <li><strong>Embedded JSON</strong> – the plugin writes the report data directly into the HTML as a JavaScript object (<code>window.reportData</code>).</li>
+            <li><strong>External JSON</strong> – the plugin generates a separate <code>report.json</code> file, and the HTML loads it via <code>fetch()</code>.</li>
+        </ol>
+        <p>Both methods produce the same interactive experience.</p>
+    </div>
+
+    <div class="card">
+        <h3>📦 Sample Report Data Structure</h3>
+        <pre><code>{
+  "deadClasses": ["com.example.UnusedClass"],
+  "deadMethods": [
+    { "owner": "com.example.MainKt", "name": "unusedFunction", "desc": "(Ljava/lang/String;)V", "annotations": [] }
+  ],
+  "deadFields": [
+    { "owner": "com.example.MainKt", "name": "unusedField", "desc": "Ljava/lang/String;", "annotations": [] }
+  ],
+  "deadResources": [
+    { "type": "layout", "name": "activity_unused" }
+  ],
+  "unusedDependencies": [
+    "com.example:unused-library:1.0.0"
+  ]
+}</code></pre>
+    </div>
+
+    <div class="card">
+        <h3>💡 Integration in Your Plugin</h3>
+        <p>If you're extending the plugin, here's how the HTML report is written:</p>
+        <pre><code>// Kotlin snippet (inside ReportWriter)
+val htmlTemplate = this::class.java.getResourceAsStream("/report-template.html")
+    .bufferedReader().readText()
+val populated = htmlTemplate.replace("/*REPORT_DATA_PLACEHOLDER*/", gson.toJson(reportData))
+File("build/reports/dead-code-detector/report.html").writeText(populated)</code></pre>
+        <p class="muted">The template uses a placeholder that gets replaced with the JSON data at generation time.</p>
+    </div>
+
+    <div class="card" style="text-align:center; background: rgba(124,58,237,0.03);">
+        <p style="margin:0; font-size:0.95rem;" class="muted">
+            📚 Want to customize the report? Check the <a href="configuration.html">configuration guide</a> or <a href="contact.html">contact me</a>.
+        </p>
+        <p style="margin-top:6px; font-size:0.85rem;" class="muted">
+            — <strong>Aria Danesh</strong>
+        </p>
+    </div>
 </main>
 <footer>
     © 2025 Aria Danesh — Dead Code Detector · MIT License · Contact: <a href="mailto:aria.danesh.work@gmail.com">aria.danesh.work@gmail.com</a>
 </footer>
+
+<script>
+    // Sample report data for the preview
+    const sampleData = {
+        deadClasses: ['com.example.UnusedClass', 'com.example.AnotherUnused'],
+        deadMethods: [
+            { owner: 'com.example.MainKt', name: 'unusedFunction', desc: '(Ljava/lang/String;)V', annotations: [] },
+            { owner: 'com.example.Utils', name: 'legacyHelper', desc: '()Z', annotations: ['Deprecated'] },
+            { owner: 'com.example.DataProcessor', name: 'processOld', desc: '(Lcom/example/Data;)V', annotations: [] }
+        ],
+        deadFields: [
+            { owner: 'com.example.Config', name: 'DEPRECATED_VALUE', desc: 'Ljava/lang/String;', annotations: [] }
+        ],
+        deadResources: [
+            { type: 'layout', name: 'activity_unused' },
+            { type: 'drawable', name: 'ic_old_logo' }
+        ],
+        unusedDependencies: ['com.example:unused-library:1.0.0']
+    };
+
+    // Use sample data if no window.reportData is present
+    const reportData = window.reportData || sampleData;
+
+    function renderItems(filterText, typeFilter) {
+        const container = document.getElementById('resultsContainer');
+        const items = [];
+        const filter = filterText.toLowerCase();
+
+        function addItem(category, obj, display) {
+            let match = true;
+            if (filter && !display.toLowerCase().includes(filter)) match = false;
+            if (typeFilter !== 'all' && category !== typeFilter) match = false;
+            if (match) items.push({ category, display, obj });
+        }
+
+        if (reportData.deadClasses) {
+            reportData.deadClasses.forEach(c => addItem('class', { name: c }, 'Class: ' + c));
+        }
+        if (reportData.deadMethods) {
+            reportData.deadMethods.forEach(m => addItem('method', m, 'Method: ' + m.owner + '.' + m.name + m.desc));
+        }
+        if (reportData.deadFields) {
+            reportData.deadFields.forEach(f => addItem('field', f, 'Field: ' + f.owner + '.' + f.name + ' : ' + f.desc));
+        }
+        if (reportData.deadResources) {
+            reportData.deadResources.forEach(r => addItem('resource', r, 'Resource: ' + r.type + '/' + r.name));
+        }
+        if (reportData.unusedDependencies) {
+            reportData.unusedDependencies.forEach(d => addItem('dependency', { name: d }, 'Dependency: ' + d));
+        }
+
+        document.getElementById('resultCount').innerText = items.length;
+
+        if (items.length === 0) {
+            container.innerHTML = '<div class="empty-state">No items match your filters.</div>';
+            return;
+        }
+
+        // Group by category
+        const grouped = {};
+        items.forEach(item => {
+            if (!grouped[item.category]) grouped[item.category] = [];
+            grouped[item.category].push(item);
+        });
+
+        const order = ['class', 'method', 'field', 'resource', 'dependency'];
+        const labels = {
+            class: '📂 Dead Classes',
+            method: '🔧 Dead Methods',
+            field: '🏷️ Dead Fields',
+            resource: '📦 Dead Resources',
+            dependency: '📦 Unused Dependencies'
+        };
+
+        let html = '';
+        order.forEach(cat => {
+            const list = grouped[cat] || [];
+            if (list.length === 0) return;
+            html += `<div class="section-header">${labels[cat] || cat} (${list.length})</div>`;
+            list.forEach(item => {
+                let display = '';
+                if (cat === 'class') {
+                    display = `<div class="result-item"><span class="owner">${item.obj.name}</span></div>`;
+                } else if (cat === 'method') {
+                    const ann = item.obj.annotations && item.obj.annotations.length > 0
+                        ? item.obj.annotations.map(a => `<span class="badge" style="background:#6b21a5;font-size:0.7rem;">${a}</span>`).join(' ')
+                        : '';
+                    display = `<div class="result-item"><span class="owner">${item.obj.owner}</span>.<span class="name">${item.obj.name}</span><span class="desc">${item.obj.desc}</span> ${ann}</div>`;
+                } else if (cat === 'field') {
+                    display = `<div class="result-item"><span class="owner">${item.obj.owner}</span>.<span class="name">${item.obj.name}</span> <span class="desc">: ${item.obj.desc}</span></div>`;
+                } else if (cat === 'resource') {
+                    display = `<div class="result-item"><span class="owner">${item.obj.type}</span>/<span class="name">${item.obj.name}</span></div>`;
+                } else if (cat === 'dependency') {
+                    display = `<div class="result-item" style="border-left-color:#f59e0b;"><span class="name">${item.obj.name}</span></div>`;
+                }
+                html += display;
+            });
+        });
+
+        container.innerHTML = html;
+    }
+
+    function applyFilters() {
+        const search = document.getElementById('searchInput').value;
+        const type = document.getElementById('typeFilter').value;
+        renderItems(search, type);
+    }
+
+    function resetFilters() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('typeFilter').value = 'all';
+        applyFilters();
+    }
+
+    // Update summary counts
+    document.getElementById('classCount').innerText = (reportData.deadClasses || []).length;
+    document.getElementById('methodCount').innerText = (reportData.deadMethods || []).length;
+    document.getElementById('fieldCount').innerText = (reportData.deadFields || []).length;
+    document.getElementById('resourceCount').innerText = (reportData.deadResources || []).length;
+    document.getElementById('depCount').innerText = (reportData.unusedDependencies || []).length;
+
+    // Initial render
+    applyFilters();
+</script>
 </body>
 </html>

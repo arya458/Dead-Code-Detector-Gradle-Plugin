@@ -1,208 +1,283 @@
-# ⚠️ For Android Version [Click Here](https://github.com/arya458/Dead-Code-Detector-Gradle-Plugin/tree/main/PluginAndroid)
-# Dead Code Detector Gradle Plugin
+# ☠️ Dead Code Detector Gradle Plugin
 
-# support me with stars please
+> **Find and remove unused code before it becomes technical debt.**
 
-**Dead Code Detector** is a Kotlin-based Gradle plugin that analyzes compiled classes, resources, and dependencies, generating a human-readable report of unused (dead) code, resources, and libraries in your project.
+A powerful Gradle plugin that detects **unused classes, methods, fields, resources, and dependencies** across **JVM, Spring Boot, Android, and Kotlin Multiplatform** projects.
 
----
+📱 **Looking for the Android version?**
 
-## Table of contents
-
-* [Why use this plugin?](#why-use-this-plugin)
-* [Features](#features)
-* [Quickstart (install & run)](#quickstart-install--run)
-* [Configuration](#configuration)
-* [Tasks](#tasks)
-* [Report format & example](#report-format--example)
-* [CI integration](#ci-integration)
-* [How it works (brief)](#how-it-works-brief)
-* [Limitations & notes](#limitations--notes)
-* [Contributing](#contributing)
-* [License](#license)
+👉 https://github.com/arya458/Dead-Code-Detector-Gradle-Plugin/tree/main/PluginAndroid
 
 ---
 
-## Why use this plugin?
+<p align="center">
 
-Keeping a codebase tidy improves maintainability, build times, and developer confidence. This plugin helps you find:
+[![Gradle Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/io.github.arya458.dead-code-detector?style=for-the-badge)](https://plugins.gradle.org/plugin/io.github.arya458.dead-code-detector)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
+![Kotlin](https://img.shields.io/badge/Kotlin-2.x-purple?style=for-the-badge)
+![ASM](https://img.shields.io/badge/ASM-Bytecode-green?style=for-the-badge)
 
-* Unreferenced top-level functions and fields
-* Unused classes
-* Dead resources
-* Unused dependencies
+</p>
 
-It produces a plain-text report you can read locally or archive in CI.
+---
 
-## Features
+# 📚 Table of Contents
 
-* Detects unused classes, top-level functions, and top-level fields in Kotlin/Java projects
-* Detects unused dependencies in your Gradle build
-* Detects unused resources (optionally scanning `src/main/resources` and `src/test/resources`)
-* Grouped, human-readable reports (method signatures, field types, dependency notations)
-* Configurable to keep public API, include/exclude tests, scan/exclude resources, exclude packages
-* Support for ignoring elements annotated with specific annotations
-* Optionally fail the build when dead code is detected
-* Can run manually or be attached to `check` for CI
+* [Why Dead Code Detector?](#-why-dead-code-detector)
+* [Features](#-features)
+* [Installation](#-installation)
+* [Configuration](#-configuration)
+* [Reports](#-reports)
+* [How It Works](#-how-it-works)
+* [Supported Platforms](#-supported-platforms)
+* [Roadmap](#-roadmap)
+* [Contributing](#-contributing)
+* [License](#-license)
+* [Contact](#-contact)
 
-## Quickstart (install & run)
+---
 
-Apply the plugin in your module's `build.gradle.kts`:
+# 🚀 Why Dead Code Detector?
+
+As projects grow, unused code inevitably accumulates.
+
+Dead classes, methods, fields, resources, and dependencies increase maintenance costs, slow down development, and make codebases harder to understand.
+
+Dead Code Detector helps you automatically identify unused code so you can safely remove it and keep your project clean and maintainable.
+
+---
+
+# ✨ Features
+
+| Feature                         | Supported |
+| ------------------------------- | :-------: |
+| Detect unused classes           |     ✅     |
+| Detect unused methods           |     ✅     |
+| Detect unused fields            |     ✅     |
+| Detect unused dependencies      |     ✅     |
+| Detect unused Android resources |     ✅     |
+| Spring Boot support             |     ✅     |
+| Kotlin Multiplatform support    |     ✅     |
+| JVM projects                    |     ✅     |
+| Platform-aware keep rules       |     ✅     |
+| Custom keep annotations         |     ✅     |
+| Parallel scanning               |     ✅     |
+| Interactive HTML report         |     ✅     |
+| JSON report                     |     ✅     |
+| Plain text report               |     ✅     |
+
+---
+
+# 📦 Installation
+
+Add the plugin to your `build.gradle.kts`.
 
 ```kotlin
 plugins {
-  id("io.github.arya458.dead-code-detector") version "0.0.5"
+    id("io.github.arya458.dead-code-detector") version "0.0.5"
 }
 ```
 
-Then run the detector manually:
+Run:
 
 ```bash
 ./gradlew deadCodeDetector
 ```
 
-Or include it in your verification pipeline:
+---
 
-```bash
-./gradlew check
-```
-
-By default the plugin writes its output to:
-
-```
-build/reports/dead-code-detector/report.txt
-```
-
-(You can override this in the configuration: see below.)
-
-## Configuration
-
-Configure the plugin with the `deadCodeDetector` extension in your module's `build.gradle.kts`:
+# ⚙️ Configuration
 
 ```kotlin
 deadCodeDetector {
-    // Fail the build if any dead code is detected
-    failOnDeadCode = true
 
-    // Scan test classes + test resources when true
+    // Fail the build if dead code is found
+    failOnDeadCode = false
+
+    // Include test sources
     includeTests = false
 
-    // If true, public API (public functions/fields) are ignored from detection
-    keepPublicApi = false
+    // Keep public API
+    keepPublicApi = true
 
-    // (Planned) Automatically clear all dead code — not yet implemented
-    // clearAllDeadCode = true
+    // auto | android | spring | kmm
+    platform = "auto"
 
-    // Resource scanning
-    includeResources = false
-    resourceDir = "src/main/resources"
+    // Resources
+    includeResources = true
+    resourceDir = "src/main/res"
     testResourceDir = "src/test/res"
 
-    // Add package prefixes (or regex-like entries) to exclude from scanning
-    excludePackages.add("com.mycompany.generated")
+    // Dependency analysis
+    analyzeDependencies = true
+    failOnUnusedDependencies = false
 
-    // Ignore elements annotated with these annotations
+    // Spring configuration scanning
+    scanConfigFiles = true
+    configDirs = listOf("src/main/resources")
+
+    // Exclusions
+    excludePackages.add("com.example.generated")
+    excludeClasses.add("com.example.Legacy")
+
+    // Keep annotations
     keepAnnotations.add("javax.inject.Inject")
+
+    // Advanced keep rules
+    customKeepRules = { type, annotations, method ->
+        false
+    }
+
+    // Performance
+    parallelScan = true
 }
 ```
 
-### Notes about configuration
+---
 
-* If you want to detect unused public API, set `keepPublicApi = false`. Be careful: this may flag intentionally public functions used by other modules or reflective consumers.
-* If you enable `includeResources`, the plugin will scan your resource directories (`resourceDir`, `testResourceDir`) for unused entries.
-* If you want to detect unused dependencies, simply run the plugin — unused dependency detection is included in the report.
-* If the plugin cannot find compiled classes, run `./gradlew classes` (or your module's compile tasks) before running the detector.
+# 📊 Reports
 
-## Tasks
+Generated reports are located at:
 
-* `deadCodeDetector` — main task that scans compiled classes, resources, and dependencies, producing the report
-* Integration with `check` — if wired in the plugin, `./gradlew check` will run the detector (depending on configuration)
-
-## Report format & example
-
-The report is a plain text file grouped by dead classes, methods, fields, resources, and dependencies. A typical (shortened) example looks like this:
-
-```
-# Dead Code Detector Report
-
-Summary:
-  * Dead methods: 2
-  * Dead fields: 1
-  * Dead classes: 1
-  * Dead resources: 1
-  * Unused dependencies: 1
-
-Dead Classes:
-  * com.example.unused.MyUnusedClass
-
-Dead Methods:
-Class: com.example.MainKt • deadCode(String) : void
-
-Dead Fields:
-Class: com.example.MainKt • unusedValue : String
-
-Dead Resources:
-  * src/main/resources/old_config.json
-
-Unused Dependencies:
-  * implementation("com.squareup.retrofit2:retrofit:2.9.0")
+```text
+build/
+└── reports/
+    └── dead-code-detector/
+        ├── report.txt
+        ├── report.html
+        └── report.json
 ```
 
-The plugin attempts to present readable signatures, resource paths, and dependency notations.
+## 📄 Text Report
 
-## CI integration
-
-Example GitHub Actions workflow:
-
-```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-      - name: Run Gradle build + dead-code-detector
-        run: ./gradlew check --no-daemon
-```
-
-If you prefer the detector not to fail CI, set `failOnDeadCode = false` in the extension.
-
-## How it works (brief)
-
-The plugin analyzes compiled class files, resources, and dependency references to determine which items are never referenced. Bytecode-level analysis makes detection reliable for compiled artifacts, but reflection or generated code may cause false positives.
-
-If you plan to use this in multi-module projects, run the detector in modules where compiled classes are available; otherwise, point to the compiled class directories if supported by the plugin configuration.
-
-## Limitations & notes
-
-* **Local variables** are not detected (Kotlin compiler may remove them in bytecode).
-* **Reflection, dynamic calls, annotation processors, and dependency injection** can create false positives — code/resources/dependencies used only reflectively might appear unused.
-* **Public API**: if your project exposes public functions/classes used by external consumers, set `keepPublicApi = true` to avoid false positives.
-* Run the plugin after building the classes (`./gradlew classes`) so compiled output is present.
-* `clearAllDeadCode` is currently a planned feature and not implemented.
-
-## Contributing
-
-Contributions and issues are welcome.
-
-Ideas for improvements:
-
-* Implement `clearAllDeadCode` option
-* Add HTML output or colored console output
-* Add more fine-grained ignore rules (annotations, regex, resource types)
-* Add integration with Detekt or other static analysis tools
-
-Please open issues or PRs against this repository.
-
-## License
-
-MIT License — feel free to use and modify the code.
+A human-readable report suitable for terminals and CI logs.
 
 ---
 
-*Generated by a friendly README polish to make the repository easier for others to use.*
+## 🌐 HTML Report
+
+Interactive report with:
+
+* Search
+* Filtering
+* Statistics
+* Grouped results
+* Responsive interface
+
+---
+
+## 📦 JSON Report
+
+Perfect for:
+
+* CI/CD pipelines
+* GitHub Actions
+* SonarQube
+* Custom tooling
+* Automated quality checks
+
+---
+
+# 📋 Example Output
+
+```text
+==== Dead Code Detector ====
+
+Dead classes          : 5
+Dead methods          : 18
+Dead fields           : 9
+Unused resources      : 14
+Unused dependencies   : 2
+
+✔ Reports generated successfully
+```
+
+---
+
+# 🧠 How It Works
+
+The plugin analyzes compiled bytecode using **ASM**.
+
+It automatically:
+
+* Collects all classes
+* Collects all methods
+* Collects all fields
+* Tracks references
+* Detects unused code
+* Scans Android resources
+* Scans Spring configuration
+* Detects unused Gradle dependencies
+* Applies platform-specific keep rules
+* Generates detailed reports
+
+---
+
+# 🚀 Supported Platforms
+
+| Platform             | Status |
+| -------------------- | :----: |
+| JVM                  |    ✅   |
+| Spring Boot          |    ✅   |
+| Android              |    ✅   |
+| Kotlin Multiplatform |    ✅   |
+
+---
+
+# 🗺️ Roadmap
+
+Future improvements include:
+
+* IntelliJ IDEA plugin
+* Maven plugin
+* Automatic dead code removal
+* SARIF report generation
+* SonarQube integration
+* GitHub Code Scanning support
+* Incremental analysis
+* Performance improvements
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+Whether you'd like to:
+
+* 🐞 Report a bug
+* ✨ Suggest a feature
+* 📖 Improve the documentation
+* 💻 Submit a Pull Request
+
+please read **CONTRIBUTING.md** before contributing.
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+Copyright © 2025 Aria Danesh
+
+See the **LICENSE** file for details.
+
+---
+
+# 📬 Contact
+
+**Aria Danesh**
+
+📧 [aria.danesh.work@gmail.com](mailto:aria.danesh.work@gmail.com)
+
+🐙 GitHub: https://github.com/arya458
+
+---
+
+# ⭐ Support the Project
+
+If you find this plugin useful, please consider giving the repository a ⭐ on GitHub.
+
+It helps the project reach more developers and motivates future improvements.
+
+Thank you for your support! ❤️
