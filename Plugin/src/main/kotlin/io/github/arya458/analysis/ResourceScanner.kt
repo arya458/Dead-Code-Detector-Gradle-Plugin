@@ -13,6 +13,7 @@ import org.objectweb.asm.Opcodes
 import java.io.File
 import java.util.concurrent.ConcurrentSkipListSet
 import org.xml.sax.InputSource
+import java.util.concurrent.ConcurrentHashMap
 import javax.xml.parsers.DocumentBuilderFactory
 
 class ResourceScanner(
@@ -21,11 +22,11 @@ class ResourceScanner(
 ) {
 
     fun scan(): ResourceModel {
-        val declared = ConcurrentSkipListSet<Pair<String, String>>()
-        val referenced = ConcurrentSkipListSet<Pair<String, String>>()
-        val referencedClassesFromManifest = ConcurrentSkipListSet<String>()
-        val referencedClassesFromSpring = ConcurrentSkipListSet<String>()
-        val referencedMethodsFromXml = ConcurrentSkipListSet<MethodRef>()
+        val declared = ConcurrentHashMap.newKeySet<Pair<String, String>>()
+        val referenced = ConcurrentHashMap.newKeySet<Pair<String, String>>()
+        val referencedClassesFromManifest = ConcurrentHashMap.newKeySet<String>()
+        val referencedClassesFromSpring = ConcurrentHashMap.newKeySet<String>()
+        val referencedMethodsFromXml = ConcurrentHashMap.newKeySet<MethodRef>()
 
         val mainResRoot = project.projectDir.resolve(extension.resourceDir)
         val testResRoot = project.projectDir.resolve(extension.testResourceDir)
