@@ -1,0 +1,539 @@
+ .deadcode-page {
+     --accent: #7c3aed;
+     --bg: #08101a;
+     --card: #0f1724;
+     --muted: #9aa4b2;
+     font-family: Inter, system-ui, sans-serif;
+     background: var(--bg);
+     color: #e6eef6;
+     margin: 0;
+     padding: 0;
+     line-height: 1.5;
+ }
+
+ .deadcode-page a {
+     color: var(--accent);
+     text-decoration: none;
+ }
+
+ .deadcode-page header {
+     backdrop-filter: blur(6px);
+     position: sticky;
+     top: 0;
+     z-index: 40;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+     background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+ }
+
+ .deadcode-page .nav {
+     max-width: 1100px;
+     margin: 0 auto;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 12px 18px;
+ }
+
+ .deadcode-page .brand {
+     display: flex;
+     gap: 12px;
+     align-items: center;
+ }
+
+ .deadcode-page .brand h1 {
+     font-size: 18px;
+     margin: 0;
+ }
+
+ .deadcode-page nav a {
+     margin-left: 14px;
+     font-size: 14px;
+     color: var(--muted);
+ }
+
+ .deadcode-page .container {
+     max-width: 1100px;
+     margin: 36px auto;
+     padding: 0 18px;
+ }
+
+ .deadcode-page .card {
+     background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+     border: 1px solid rgba(255, 255, 255, 0.04);
+     padding: 20px;
+     border-radius: 12px;
+ }
+
+ .deadcode-page pre {
+     background: #071226;
+     padding: 14px;
+     border-radius: 10px;
+     overflow: auto;
+     color: #e6eef6;
+ }
+
+ .deadcode-page footer {
+     max-width: 1100px;
+     margin: 24px auto;
+     padding: 20px;
+     color: var(--muted);
+     text-align: center;
+ }
+
+ .deadcode-page .muted {
+     color: var(--muted);
+ }
+
+ .deadcode-page .kbd {
+     background: #091827;
+     border-radius: 6px;
+     padding: 6px 8px;
+     font-family: monospace;
+ }
+
+ .deadcode-page ul {
+     padding-left: 20px;
+ }
+
+ .deadcode-page li {
+     margin-bottom: 4px;
+ }
+
+ /* small screens */
+ @media (max-width: 640px) {
+     .deadcode-page .nav {
+         flex-wrap: wrap;
+         gap: 8px;
+     }
+
+     .deadcode-page nav a {
+         margin: 0 6px;
+         font-size: 13px;
+     }
+ }
+
+ /* Additional styles for CI page */
+.deadcode-page .tip-box {
+    background: rgba(124,58,237,0.05);
+    border-left: 3px solid #7c3aed;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin: 12px 0;
+}
+
+.deadcode-page .badge {
+    display: inline-block;
+    background: #7c3aed;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.deadcode-page .platform-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .deadcode-page .platform-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.deadcode-page .platform-card {
+    background: rgba(255,255,255,0.02);
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+.deadcode-page .platform-card h4 {
+    margin-top: 0;
+    color: #7c3aed;
+}
+
+.deadcode-page .platform-card .icon {
+    font-size: 1.5rem;
+}
+
+.deadcode-page .card {
+    margin-bottom: 20px;
+}
+
+.deadcode-page .card h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.deadcode-page .card code {
+    background: #091827;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.deadcode-page .card ul, 
+.deadcode-page .card ol {
+    padding-left: 20px;
+}
+
+.deadcode-page .card li {
+    margin-bottom: 6px;
+}
+
+.deadcode-page .card pre {
+    font-size: 0.9rem;
+}
+
+/* Additional styles for Configuration page */
+.deadcode-page .option-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 768px) {
+    .deadcode-page .option-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.deadcode-page .option-item {
+    background: rgba(255,255,255,0.02);
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+.deadcode-page .option-item .name {
+    font-weight: 600;
+    color: #7c3aed;
+}
+
+.deadcode-page .option-item .type {
+    font-size: 0.8rem;
+    color: #9aa4b2;
+    background: #091827;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+}
+
+.deadcode-page .option-item .desc {
+    font-size: 0.9rem;
+    margin-top: 4px;
+    color: #c8d0d8;
+}
+
+.deadcode-page .option-item .default {
+    font-size: 0.8rem;
+    color: #9aa4b2;
+    margin-top: 2px;
+}
+
+.deadcode-page .card h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.deadcode-page .card code {
+    background: #091827;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.deadcode-page .card ul, 
+.deadcode-page .card ol {
+    padding-left: 20px;
+}
+
+.deadcode-page .card li {
+    margin-bottom: 6px;
+}
+
+.deadcode-page .card pre {
+    font-size: 0.9rem;
+}
+/* Additional styles for Contact page */
+.deadcode-page .contact-email {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #7c3aed;
+    word-break: break-all;
+}
+
+.deadcode-page .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.deadcode-page .social-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.2s;
+}
+
+.deadcode-page .social-links a:hover {
+    background: rgba(124,58,237,0.2);
+    text-decoration: none;
+}
+
+.deadcode-page .badge {
+    display: inline-block;
+    background: #7c3aed;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.deadcode-page .response-time {
+    background: rgba(40,167,69,0.05);
+    border-color: rgba(40,167,69,0.2);
+}
+
+.deadcode-page .contact-card {
+    text-align: center;
+    border-color: rgba(124,58,237,0.3);
+    background: rgba(124,58,237,0.05);
+}
+
+.deadcode-page .card h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.deadcode-page .card code {
+    background: #091827;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.deadcode-page .card ul, 
+.deadcode-page .card ol {
+    padding-left: 20px;
+}
+
+.deadcode-page .card li {
+    margin-bottom: 6px;
+}   
+/* Additional styles for Contributing page */
+.deadcode-page .card h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.deadcode-page .card code {
+    background: #091827;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.deadcode-page .card ul, 
+.deadcode-page .card ol {
+    padding-left: 20px;
+}
+
+.deadcode-page .card li {
+    margin-bottom: 6px;
+}
+
+.deadcode-page .card pre {
+    font-size: 0.9rem;
+}
+
+.deadcode-page .badge {
+    display: inline-block;
+    background: #7c3aed;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+/* Additional styles for Installation page */
+.deadcode-page .card h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.deadcode-page .card code {
+    background: #091827;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.deadcode-page .card pre {
+    font-size: 0.9rem;
+}
+
+.deadcode-page .kbd {
+    background: #091827;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-family: monospace;
+}
+/* Additional styles for Report page */
+.deadcode-page .badge {
+    display: inline-block;
+    background: #7c3aed;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.deadcode-page #reportPreview {
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.deadcode-page #reportPreview .preview-header {
+    background: rgba(255,255,255,0.03);
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deadcode-page #reportPreview .preview-body {
+    padding: 16px;
+    min-height: 120px;
+    font-size: 0.9rem;
+}
+
+.deadcode-page .placeholder-text {
+    color: #9aa4b2;
+    font-style: italic;
+}
+
+.deadcode-page .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 16px 0;
+}
+
+.deadcode-page .filter-bar input,
+.deadcode-page .filter-bar select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: #091827;
+    color: #e6eef6;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.deadcode-page .filter-bar input {
+    flex: 1;
+    min-width: 160px;
+}
+
+.deadcode-page .filter-bar select {
+    min-width: 120px;
+}
+
+.deadcode-page .filter-bar button {
+    padding: 6px 16px;
+    border-radius: 6px;
+    border: none;
+    background: #7c3aed;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+
+.deadcode-page .filter-bar button:hover {
+    background: #6d28d9;
+}
+
+.deadcode-page .result-item {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border-left: 2px solid #7c3aed;
+    margin: 4px 0;
+    background: rgba(255,255,255,0.02);
+}
+
+.deadcode-page .result-item .owner {
+    color: #7c3aed;
+    font-weight: 500;
+}
+
+.deadcode-page .result-item .name {
+    font-weight: 400;
+}
+
+.deadcode-page .result-item .desc {
+    color: #9aa4b2;
+    font-size: 0.85rem;
+}
+
+.deadcode-page .section-header {
+    font-weight: 600;
+    margin-top: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: #c8d0d8;
+}
+
+.deadcode-page .empty-state {
+    color: #9aa4b2;
+    font-style: italic;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.deadcode-page .card h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.deadcode-page .card code {
+    background: #091827;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.deadcode-page .card ul, 
+.deadcode-page .card ol {
+    padding-left: 20px;
+}
+
+.deadcode-page .card li {
+    margin-bottom: 4px;
+}
+
+.deadcode-page .card pre {
+    font-size: 0.85rem;
+}
