@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="just a quick refactor">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="05bb5da9-34c6-466a-a052-c2b06c31cf0a" name="Changes" comment="Trying to Fix the ISSue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ResourceScanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/analysis/ResourceScanner.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Plugin/src/main/kotlin/io/github/arya458/report/ReportWriter.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +141,7 @@
     &quot;git-widget-placeholder&quot;: &quot;early&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Programming/Projects/Dead-Code-Detector-Gradle-Plugin&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Programming/Projects/Dead-Code-Detector-Gradle-Plugin/docs&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -160,6 +156,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Programming\Projects\Dead-Code-Detector-Gradle-Plugin\docs" />
       <recent name="C:\Users\adanesh\Dead-Code-Detector-Gradle-Plugin" />
       <recent name="G:\Programming\Projects\Dead-Code-Detector-Gradle-Plugin" />
     </key>
@@ -375,7 +372,9 @@
       <workItem from="1783491350573" duration="5039000" />
       <workItem from="1783576477913" duration="2790000" />
       <workItem from="1783579472003" duration="182000" />
-      <workItem from="1783579806281" duration="511000" />
+      <workItem from="1783579806281" duration="846000" />
+      <workItem from="1783581254839" duration="26000" />
+      <workItem from="1783581305614" duration="455000" />
     </task>
     <task id="LOCAL-00001" summary="Clean code always looks like it was written by someone who cares. - Michael Feathers&#10;Co-authored-by: Aria Danesh &lt;arya717375@gmail.com&gt;">
       <option name="closed" value="true" />
@@ -521,7 +520,23 @@
       <option name="project" value="LOCAL" />
       <updated>1783494306868</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Trying to Fix the ISSue">
+      <option name="closed" value="true" />
+      <created>1783580340326</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1783580340327</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Trying to Fix the ISSue">
+      <option name="closed" value="true" />
+      <created>1783580539231</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1783580539231</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +561,8 @@
     <MESSAGE value="Lets refactor :D" />
     <MESSAGE value="feat(extension): add custom keep annotations and rule provider" />
     <MESSAGE value="just a quick refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="just a quick refactor" />
+    <MESSAGE value="Trying to Fix the ISSue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to Fix the ISSue" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

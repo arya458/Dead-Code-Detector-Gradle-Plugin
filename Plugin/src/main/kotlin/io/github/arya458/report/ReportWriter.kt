@@ -14,7 +14,7 @@ class ReportWriter(private val extension: DeadCodeDetectorExtension) {
         htmlFile.writeText(buildHtmlReport(result, deps), StandardCharsets.UTF_8)
         val jsonFile = File(file.parent, file.nameWithoutExtension + ".json")
         jsonFile.writeText(buildJsonReport(result, deps), StandardCharsets.UTF_8)
-        printSummary(result, deps)
+        printSummary(result, deps, file.parent)
     }
 
     private fun buildTextReport(result: DeadCodeModel, deps: DependencyAnalyzerModel): String {
@@ -303,7 +303,7 @@ class ReportWriter(private val extension: DeadCodeDetectorExtension) {
         """.trimIndent()
     }
 
-    private fun printSummary(result: DeadCodeModel, deps: DependencyAnalyzerModel) {
+    private fun printSummary(result: DeadCodeModel, deps: DependencyAnalyzerModel, path: String) {
         val ansi = object {
             val RESET = "\u001B[0m"
             val RED = "\u001B[31m"
@@ -331,6 +331,7 @@ class ReportWriter(private val extension: DeadCodeDetectorExtension) {
             println("${ansi.GREEN}✔ No dead code, resources, or unused dependencies detected!${ansi.RESET}")
         }
 
-        println("${ansi.BOLD}${ansi.CYAN}==== Report saved at ====${ansi.RESET}")
+        println("${ansi.BOLD}${ansi.CYAN}==== Report saved at ====${ansi.RESET}\n")
+        println("${ansi.GREEN}${path}")
     }
 }
