@@ -12,7 +12,7 @@ currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability within this project, please send an email to [YOUR_EMAIL] or open a **private vulnerability report** on GitHub.
+If you discover a security vulnerability within this project, please send an email to **aria.danesh.work@gmail.com** or open a **private vulnerability report** on GitHub.
 
 **Please do NOT** disclose the vulnerability publicly until it has been addressed.
 
