@@ -39,13 +39,8 @@ gradlePlugin {
     }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("pluginMaven") {
-            from(components["java"])
-        }
-    }
-}
+// Do NOT create a manual MavenPublication named "pluginMaven" —
+// java-gradle-plugin already registers it.
 
 tasks.test {
     useJUnitPlatform()
