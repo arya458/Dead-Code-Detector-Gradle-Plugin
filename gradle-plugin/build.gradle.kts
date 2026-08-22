@@ -13,7 +13,6 @@ kotlin {
 
 dependencies {
     compileOnly(gradleApi())
-    compileOnly(localGroovy())
 
     implementation(project(":core"))
     implementation(project(":platforms:android"))
@@ -36,6 +35,15 @@ gradlePlugin {
             displayName = "Dead Code Detector"
             description = "Detects unused classes, methods, fields, resources and dependencies."
             tags.set(listOf("deadcode", "static-analysis", "android", "kmp", "spring", "ktor"))
+        }
+    }
+}
+
+publishing {
+    publications {
+        // enables publishToMavenLocal for consumers outside the composite
+        create<MavenPublication>("pluginMaven") {
+            from(components["java"])
         }
     }
 }

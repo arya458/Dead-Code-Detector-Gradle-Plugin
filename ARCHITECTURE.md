@@ -1,31 +1,28 @@
 # Architecture – branch `early`
 
-## Local development (plugin resolution)
-
-All modules live in **one** Gradle multi-project build:
+## Plugin resolution (local)
 
 ```
-:core
-:platforms:android | kmp | spring | ktor
-:gradle-plugin
-:TestApp | :TestSpring
+root settings
+  pluginManagement { includeBuild("gradle-plugin") }
+  include(TestApp, TestSpring)
+
+gradle-plugin/   ← included build
+  settings maps ../core, ../platforms/*
+  registers id("io.github.arya458.dead-code-detector")
 ```
 
-Samples apply the plugin like this (no Maven publish required):
-
-```kotlin
-buildscript {
-    dependencies {
-        classpath(project(":gradle-plugin"))
-    }
-}
-apply(plugin = "io.github.arya458.dead-code-detector")
-```
-
-After publishing to the Plugin Portal / mavenLocal, consumers use:
-
+Samples:
 ```kotlin
 plugins {
-    id("io.github.arya458.dead-code-detector") version "x.y.z"
+    id("io.github.arya458.dead-code-detector")  // no version needed
 }
+```
+
+## Build plugin alone
+
+```bash
+./gradlew --project-dir gradle-plugin jar
+# or from root after composite resolves:
+./gradlew :TestApp:deadCodeDetector
 ```

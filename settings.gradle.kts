@@ -1,8 +1,12 @@
 pluginManagement {
+    // Local plugin: resolves id("io.github.arya458.dead-code-detector") without version
+    includeBuild("gradle-plugin")
+
     repositories {
         google()
         mavenCentral()
         gradlePluginPortal()
+        mavenLocal()
     }
 }
 
@@ -16,17 +20,12 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        mavenLocal()
     }
 }
 
 rootProject.name = "dead-code-detector"
 
-include("core")
-include("platforms:android")
-include("platforms:kmp")
-include("platforms:spring")
-include("platforms:ktor")
-include("gradle-plugin")
-
+// Samples only — plugin + libraries live inside the included build
 include("TestApp")
 include("TestSpring")
