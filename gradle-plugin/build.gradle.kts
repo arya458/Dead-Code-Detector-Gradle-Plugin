@@ -13,6 +13,8 @@ kotlin {
 }
 
 dependencies {
+    compileOnly(gradleApi())
+
     implementation(project(":core"))
     implementation(project(":platforms:android"))
     implementation(project(":platforms:kmp"))

@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm")
+    kotlin("jvm") version "2.0.21"
     id("io.github.arya458.dead-code-detector")
 }
 
@@ -17,24 +17,21 @@ dependencies {
 
 deadCodeDetector {
     failOnDeadCode = true
-    includeTests = false          // now includes test classes + test resources
+    includeTests = false
     keepPublicApi = false
 
-    //todo : clearAllDeadCode = true
-
-    includeResources = false      // scan resources
+    includeResources = false
     resourceDir = "src/main/resources"
     testResourceDir = "src/test/res"
 
     excludePackages.add("com.mycompany.generated")
-
     keepAnnotations.add("javax.inject.Inject")
 }
-
 
 tasks.test {
     useJUnitPlatform()
 }
+
 kotlin {
-    jvmToolchain(20)
+    jvmToolchain(17)
 }

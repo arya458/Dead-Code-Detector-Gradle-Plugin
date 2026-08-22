@@ -1,4 +1,7 @@
 pluginManagement {
+    // Local plugin development: resolve id from the included build
+    includeBuild("gradle-plugin")
+
     repositories {
         google()
         mavenCentral()
@@ -21,12 +24,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "dead-code-detector"
 
-include("core")
-include("platforms:android")
-include("platforms:kmp")
-include("platforms:spring")
-include("platforms:ktor")
-include("gradle-plugin")
-
+// Sample / integration projects only at root.
+// Plugin + core + platforms live in the included build: gradle-plugin/
 include("TestApp")
 include("TestSpring")
