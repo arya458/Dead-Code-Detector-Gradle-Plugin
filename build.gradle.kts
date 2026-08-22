@@ -1,21 +1,15 @@
 plugins {
-    kotlin("jvm") version "2.2.21"
+    alias(libs.plugins.kotlin.jvm) apply false
 }
 
-group = "io.github.arya458"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
+allprojects {
+    group = "io.github.arya458"
+    version = "0.1.0-early"
 }
 
-dependencies {
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(20)
+subprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
 }
