@@ -78,7 +78,7 @@ class ResourceScanner(
                 "values" -> {
                     if (file.extension == "xml") {
                         val xml = file.readText()
-                        Regex("< (string|color|dimen|style|array) name=\"(.*?)\"".replace(" ", "")).findAll(xml).forEach {
+                        Regex("<(string|color|dimen|style|array) name=\"(.*?)\"").findAll(xml).forEach {
                             declared.add(it.groupValues[1] to it.groupValues[2])
                         }
                     }
