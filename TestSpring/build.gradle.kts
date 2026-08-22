@@ -3,8 +3,14 @@ plugins {
     kotlin("plugin.spring") version "2.0.21"
     id("org.springframework.boot") version "3.4.1"
     id("io.spring.dependency-management") version "1.1.7"
-    id("io.github.arya458.dead-code-detector")
 }
+
+buildscript {
+    dependencies {
+        classpath(project(":gradle-plugin"))
+    }
+}
+apply(plugin = "io.github.arya458.dead-code-detector")
 
 group = "com.aria.danesh"
 version = "0.0.1-SNAPSHOT"

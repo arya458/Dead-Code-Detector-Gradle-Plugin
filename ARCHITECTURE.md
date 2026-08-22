@@ -1,38 +1,31 @@
-# Architecture – Dead Code Detector (branch `early`)
+# Architecture – branch `early`
 
-## Build layout
+## Local development (plugin resolution)
+
+All modules live in **one** Gradle multi-project build:
 
 ```
-root (samples)
-├── TestApp /
-├── TestSpring /
-└── pluginManagement.includeBuild("gradle-plugin")
-
-gradle-plugin/          ← included build (provides the Gradle plugin)
-├── settings.gradle.kts   maps ../core and ../platforms/*
-├── build.gradle.kts      java-gradle-plugin
-├── ../core
-└── ../platforms/{android,kmp,spring,ktor}
+:core
+:platforms:android | kmp | spring | ktor
+:gradle-plugin
+:TestApp | :TestSpring
 ```
 
-This is the standard Gradle composite pattern so that samples can resolve:
+Samples apply the plugin like this (no Maven publish required):
+
+```kotlin
+buildscript {
+    dependencies {
+        classpath(project(":gradle-plugin"))
+    }
+}
+apply(plugin = "io.github.arya458.dead-code-detector")
+```
+
+After publishing to the Plugin Portal / mavenLocal, consumers use:
 
 ```kotlin
 plugins {
-    id("io.github.arya458.dead-code-detector")
+    id("io.github.arya458.dead-code-detector") version "x.y.z"
 }
 ```
-
-without publishing to Maven first.
-
-## Modules
-
-| Module | Role | Gradle API? |
-|--------|------|-------------|
-| `core` | Bytecode scan, DeadCodeAnalyzer, models | No |
-| `platforms:*` | Platform keep-rules (Strategy) | No |
-| `gradle-plugin` | Plugin + Extension + Task + adapters | Yes |
-
-## Version
-
-`0.1.0-early`
