@@ -12,7 +12,9 @@ kotlin {
 }
 
 dependencies {
+    // gradleApi must be on compile classpath for Task/Project APIs
     compileOnly(gradleApi())
+    implementation(gradleApi())
 
     implementation(project(":core"))
     implementation(project(":platform-android"))
@@ -38,9 +40,6 @@ gradlePlugin {
         }
     }
 }
-
-// Do NOT create a manual MavenPublication named "pluginMaven" —
-// java-gradle-plugin already registers it.
 
 tasks.test {
     useJUnitPlatform()

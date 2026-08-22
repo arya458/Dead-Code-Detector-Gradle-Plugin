@@ -5,10 +5,8 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 /**
- * Entry point of the Dead Code Detector Gradle plugin (new modular architecture).
- *
- * This class only wires the Extension and Task.
- * All analysis logic lives in the `core` module.
+ * Entry point of the Dead Code Detector Gradle plugin (modular architecture).
+ * Wires Extension + Task; analysis lives in `core`.
  */
 class DeadCodeDetectorPlugin : Plugin<Project> {
 
@@ -21,25 +19,31 @@ class DeadCodeDetectorPlugin : Plugin<Project> {
         val taskProvider = project.tasks.register(
             "deadCodeDetector",
             DeadCodeDetectorTask::class.java
-        ) {
-            group = "verification"
-            description = "Detect dead code, unused resources and dependencies"
-            this.extension = extension
+        ) { task ->
+            task.group = "verification"
+            task.description = "Detect dead code, unused resources and dependencies"
+            task.extension = extension
         }
 
-        // Soft dependency on compile tasks (refined later)
         project.afterEvaluate {
             val compileTasks = project.tasks.matching { t ->
                 t.name.startsWith("compile") || t.name == "classes"
             }
-            if (compileTasks.isNotEmpty()) {
-                taskProvider.configure { dependsOn(compileTasks) }
+            if (!compileTasks.isEmpty) {
+                taskProvider.configure { task ->
+                    task.dependsOn(compileTasks)
+                }
             }
         }
 
         project.plugins.withId("java") {
-            project.tasks.named("check").configure {
-                dependsOn("deadCodeDetector")
+            project.tasks.named("check").configure { task ->
+                task.dependsOn("deadCodeDetector")
+            }
+        }
+        project.plugins.withId("org.jetbrains.kotlin.jvm") {
+            project.tasks.named("check").configure { task ->
+                task.dependsOn("deadCodeDetector")
             }
         }
     }
