@@ -29,7 +29,7 @@ class DeadCodeDetectorPlugin : Plugin<Project> {
             val compileTasks = project.tasks.matching { t ->
                 t.name.startsWith("compile") || t.name == "classes"
             }
-            if (!compileTasks.isEmpty) {
+            if (!compileTasks.isEmpty()) {
                 taskProvider.configure { task ->
                     task.dependsOn(compileTasks)
                 }
