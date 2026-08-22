@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.2.21"
+    kotlin("jvm")
     id("io.github.arya458.dead-code-detector")
 }
 
