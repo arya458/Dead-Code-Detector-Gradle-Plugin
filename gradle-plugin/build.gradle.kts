@@ -15,10 +15,10 @@ dependencies {
     compileOnly(gradleApi())
 
     implementation(project(":core"))
-    implementation(project(":platforms:android"))
-    implementation(project(":platforms:kmp"))
-    implementation(project(":platforms:spring"))
-    implementation(project(":platforms:ktor"))
+    implementation(project(":platform-android"))
+    implementation(project(":platform-kmp"))
+    implementation(project(":platform-spring"))
+    implementation(project(":platform-ktor"))
 
     implementation(libs.kotlin.stdlib)
 
@@ -41,7 +41,6 @@ gradlePlugin {
 
 publishing {
     publications {
-        // enables publishToMavenLocal for consumers outside the composite
         create<MavenPublication>("pluginMaven") {
             from(components["java"])
         }
